@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOFAST — Ideation Sketches</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    /* Styling khusus dokumentasi sketsa & voting */
+    .sketch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    .sketch-card {
+      padding: 20px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sketch-img-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0,0,0,0.2);
+      margin-bottom: 15px;
+    }
+    .sketch-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .sketch-card:hover .sketch-img {
+      transform: scale(1.03);
+    }
+    .vote-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #14B8A6;
+      color: #12182B;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+    }
+    .status-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .badge-selected {
+      background: rgba(108, 99, 255, 0.15);
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      color: #8B5CF6;
+    }
+    .badge-backup {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaa;
+    }
+    
+    /* Table Styling untuk delegasi halaman */
+    .vote-table-wrapper {
+      overflow-x: auto;
+      margin-top: 30px;
+    }
+    .vote-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      background: rgba(18, 24, 43, 0.4);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .vote-table th, .vote-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .vote-table th {
+      background: rgba(108, 99, 255, 0.1);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+    }
+    .vote-table td {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+    .designer-avatar {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .avatar-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6C63FF;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container navbar">
+      <a href="../index.html" class="logo">GOFAST</a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-menu">
+        <a href="../index.html">Beranda</a>
+        <a href="persona.html">Persona</a>
+        <a href="problem.html">Problem</a>
+        <a href="sketches.html" class="active">Sketches</a>
+        <a href="flow.html">User Flow</a>
+        <a href="tipografi.html">Tipografi</a>
+        <a href="uifinal.html">UI Final</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="hero-badge" style="display:inline-flex;margin-bottom:20px;">Ideation Stage</div>
+      <h1>Brainstorming <br><span class="gradient-text">& Sketches</span></h1>
+      <p>Mengumpulkan konsep visual kasar melalui sesi eksplorasi mandiri, dilanjutkan dengan proses voting internal tim untuk mendelegasikan perancangan halaman ke tiap UI/UX Designer.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      
+      <div class="section-title" style="margin-bottom: 40px;">
+        <h2 style="font-family: 'Syne', sans-serif; font-size: 2rem; margin-bottom: 10px;">Hasil Sesi Eksplorasi Sketsa</h2>
+        <p style="color: #94a3b8; max-width: 600px;">Berikut adalah kompilasi coretan alternatif layout yang diajukan oleh masing-hari anggota tim sebelum dikerucutkan.</p>
+      </div>
+
+      <div class="sketch-grid">
+        
+        <div class="glass card sketch-card reveal">
+          <div>
+            <div class="sketch-img-wrapper">
+              <img src="../image/Design 1.png" alt="Sketsa Opsi 1" class="sketch-img">
+            </div>
+            <span class="status-badge badge-selected">Terpilih (Prioritas Utama)</span>
+            <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi A</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.5; margin: 0;">
+              Berfokus pada penyederhanaan alur otentikasi login/register, penyediaan peta indikator yang ringkas, serta kemudahan melacak histori perjalanan di bagian profil.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass card sketch-card reveal" style="transition-delay:.1s">
+          <div>
+            <div class="sketch-img-wrapper">
+              <img src="../image/Design 2.png" alt="Sketsa Opsi 2" class="sketch-img">
+            </div>
+            <span class="status-badge badge-selected">Terpilih (Kombinasi Konsep)</span>
+            <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi B</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.5; margin: 0;">
+              Menonjolkan fitur *Pickup Suggestion* titik penjemputan alternatif yang dinamis dan visualisasi peta kemacetan lalu lintas real-time yang informatif bagi lansia.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass card sketch-card reveal" style="transition-delay:.2s">
+          <div>
+            <div class="sketch-img-wrapper">
+              <img src="../image/Design 3.png" alt="Sketsa Opsi 3" class="sketch-img">
+            </div>
+            <span class="status-badge badge-selected">Terpilih (Referensi Layout)</span>
+            <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi C</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.5; margin: 0;">
+              Konsep layout beranda minimalis dengan menu pencarian instan sekali ketuk (*1-Tap Booking*) serta antarmuka ulasan performa driver pasca-berkendara.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass card sketch-card reveal" style="transition-delay:.3s">
+          <div>
+            <div class="sketch-img-wrapper">
+              <img src="../image/Design 4.png" alt="Sketsa Opsi 4" class="sketch-img">
+            </div>
+            <span class="status-badge badge-backup">Arsip Eksperimen</span>
+            <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi D</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.5; margin: 0;">
+              Eksperimen tata letak kompleks dengan indikator densitas ketersediaan jumlah driver aktif berbasis grafik batang langsung pada halaman pemilihan layanan.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass card sketch-card reveal" style="transition-delay:.4s">
+          <div>
+            <div class="sketch-img-wrapper">
+              <img src="../image/Design 5.png" alt="Sketsa Opsi 5" class="sketch-img">
+            </div>
+            <span class="status-badge badge-backup">Arsip Eksperimen</span>
+            <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi E</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.5; margin: 0;">
+              Struktur *wireframe* awal berbasis grid persegi untuk pemetaan titik temu alternatif dan penyusunan informasi ringkasan invoice pembayaran tarif komuter.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 60px 0;">
+
+      <div class="section-title" style="margin-bottom: 40px;">
+        <h2 style="font-family: 'Syne', sans-serif; font-size: 2rem; margin-bottom: 10px;">Hasil Voting & Transformasi Wireframe</h2>
+        <p style="color: #94a3b8; max-width: 650px;">Berdasarkan perolehan suara terbanyak, berikut adalah hasil pengerjaan tim desainer yang telah sukses mentransformasikan sketsa konseptual menjadi struktur tata letak digital (Wireframe Lo-Fi).</p>
+      </div>
+
+      <div class="sketch-grid">
+        
+        <div class="glass card sketch-card reveal">
+          <div>
+            <div class="sketch-img-wrapper">
+              <img src="../image/wf1.png" alt="Wireframe Splash & Login" class="sketch-img">
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <span class="status-badge badge-selected" style="margin-bottom:0; background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3);">Wireframe Selesai</span>
+              <span style="font-size:0.8rem; color:#6C63FF; font-weight:600;">Opsi A & C</span>
+            </div>
+            <h3 style="margin: 5px 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.2rem;">Splash, Login & OTP</h3>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 15px;">
+              Perancangan struktur awal halaman masuk, validasi nomor telepon (OTP), serta penataan gerbang verifikasi pengguna yang aman.
+            </p>
+          </div>
+          <div class="designer-avatar" style="border-top:1px solid rgba(255,255,255,0.05); padding-top:12px; font-size:0.9rem;">
+          </div>
+        </div>
+
+        <div class="glass card sketch-card reveal" style="transition-delay:.1s">
+          <div>
+            <div class="sketch-img-wrapper">
+              <img src="../image/wf2.png" alt="Wireframe Utama Beranda" class="sketch-img">
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <span class="status-badge badge-selected" style="margin-bottom:0; background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3);">Wireframe Selesai</span>
+              <span style="font-size:0.8rem; color:#6C63FF; font-weight:600;">Opsi B</span>
+            </div>
+            <h3 style="margin: 5px 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.2rem;">Beranda & Peta Navigasi</h3>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 15px;">
+              Struktur tata letak beranda utama dengan penempatan kolom pencarian rute cepat, peta interaktif, serta info ketersediaan driver komuter.
+            </p>
+          </div>
+          <div class="designer-avatar" style="border-top:1px solid rgba(255,255,255,0.05); padding-top:12px; font-size:0.9rem;">
+          </div>
+        </div>
+
+        <div class="glass card sketch-card reveal" style="transition-delay:.2s">
+          <div>
+            <div class="sketch-img-wrapper">
+              <img src="../image/wf3.png" alt="Wireframe Pemilihan Layanan" class="sketch-img">
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <span class="status-badge badge-selected" style="margin-bottom:0; background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3);">Wireframe Selesai</span>
+              <span style="font-size:0.8rem; color:#6C63FF; font-weight:600;">Opsi E</span>
+            </div>
+            <h3 style="margin: 5px 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.2rem;">Penetapan Tarif & Invoice</h3>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 15px;">
+              Penyusunan komponen lembar detail pembayaran, rincian biaya komuter, serta tombol aksi persetujuan pemesanan armada.
+            </p>
+          </div>
+          <div class="designer-avatar" style="border-top:1px solid rgba(255,255,255,0.05); padding-top:12px; font-size:0.9rem;">
+
+          </div>
+        </div>
+
+        <div class="glass card sketch-card reveal" style="transition-delay:.3s">
+          <div>
+            <div class="sketch-img-wrapper">
+              <img src="../image/wf4.png" alt="Wireframe Profil & Ulasan" class="sketch-img">
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <span class="status-badge badge-selected" style="margin-bottom:0; background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3);">Wireframe Selesai</span>
+              <span style="font-size:0.8rem; color:#6C63FF; font-weight:600;">Opsi C</span>
+            </div>
+            <h3 style="margin: 5px 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.2rem;">Riwayat & Rating Driver</h3>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 15px;">
+              Pengembangan komponen umpan balik pasca perjalanan, kolom ulasan bintang driver, serta kartu log riwayat transaksi pengguna.
+            </p>
+          </div>
+          <div class="designer-avatar" style="border-top:1px solid rgba(255,255,255,0.05); padding-top:12px; font-size:0.9rem;">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0; margin-top: 40px;">
+    <div class="container">
+      <div class="reveal">
+        <a href="https://www.figma.com/design/DwiaEeERbZOn1I84vC0BCO/Wireframe_Bagus-Dananjaya?node-id=0-1&t=2PRrBvkV7TvihVT8-1" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           style="text-decoration: none; display: block; color: inherit;">
+          
+          <div class="glass card" style="display: flex; align-items: center; justify-content: space-between; padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.15); transition: transform 0.3s ease, border-color 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#ff5722';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.15)';">
+            
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                <svg width="36" height="54" viewBox="0 0 36 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 13.5C9 8.52944 13.0294 4.5 18 4.5C22.9706 4.5 27 8.52944 27 13.5C27 18.4706 22.9706 22.5 18 22.5C13.0294 22.5 9 18.4706 9 13.5Z" fill="#F24E1E"/>
+                  <path d="M0 13.5C0 8.52944 4.02944 4.5 9 4.5C13.9706 4.5 18 8.52944 18 13.5C18 18.4706 13.9706 22.5 9 22.5C4.02944 22.5 0 18.4706 0 13.5Z" fill="#FF7262"/>
+                  <path d="M0 31.5C0 26.5294 4.02944 22.5 9 22.5H18V40.5C18 45.4706 13.9706 49.5 9 49.5C4.02944 49.5 0 45.4706 0 40.5C0 35.5294 4.02944 31.5 9 31.5Z" fill="#1ABC9C"/>
+                  <path d="M18 22.5H27C31.9706 22.5 36 26.5294 36 31.5C36 36.4706 31.9706 40.5 27 40.5C22.9706 40.5 18 36.4706 18 31.5V22.5Z" fill="#0ACF83"/>
+                  <path d="M0 31.5C0 26.5294 4.02944 22.5 9 22.5H18V40.5H9C4.02944 40.5 0 36.4706 0 31.5Z" fill="#A259FF"/>
+                </svg>
+              </div>
+              
+              <div>
+                <span class="hero-badge" style="font-size: 0.75rem; padding: 2px 8px; margin-bottom: 6px; display: inline-block;">Figma File</span>
+                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem; font-family: 'Syne', sans-serif;">Lo-Fi Wireframe — GOFAST </h3>
+                <p style="margin: 0; color: #aaa; font-size: 0.9rem;">Klik untuk meninjau struktur tata letak digital, rancangan antarmuka komponen, dan alur grid Lo-Fi dari masing-masing desainer di Figma.</p>
+              </div>
+            </div>
+
+            <div style="font-size: 1.5rem; color: #666; padding-right: 10px;">
+              ➔
+            </div>
+
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 <strong>GOFAST</strong> — Design Documentation Project</p>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
