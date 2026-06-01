@@ -8,6 +8,75 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* Mantra utama anti-bocor dan anti-zoom-out horizontal */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Mengamankan Header & Tombol Hamburger Menu dari konflik z-index */
+    .header {
+      z-index: 2000 !important;
+    }
+    .menu-toggle {
+      position: relative !important;
+      z-index: 2001 !important;
+      cursor: pointer !important;
+    }
+
+    @media (max-width: 768px) {
+      /* Sinkronisasi Drawer Navigasi Mobile sesuai kedaulatan style.css */
+      .nav-menu.open {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        background: #050816 !important;
+        z-index: 1999 !important;
+      }
+      .nav-menu a {
+        color: #ffffff !important;
+        opacity: 1 !important;
+      }
+      
+      /* Mengubah grid atas menjadi 1 kolom pas di layar HP */
+      .cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+    }
+
+    /* 1. JANGAN PAKSA SEMUA JADI BLOCK, TAPI TETAP PAKSA MUNCUL */
+  /* Kita gunakan properti "unset" atau spesifik agar layout grid tetap jalan */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  /* 2. BERESKAN GRID BIAR GAK BERANTAKAN */
+  .cards-grid, .responsive-cards-grid {
+    display: grid !important; /* Kembalikan ke grid biar rapi */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 25px !important;
+  }
+
+  /* 3. PASTIKAN CARD TIDAK MEMAKSA TINGGI LAYAR 100VH */
+  .card, .glass {
+    min-height: unset !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* 4. MENGATASI OVERFLOW HORIZONTAL (BIAR GAK BISA DIGESER KEKIRI-KANAN) */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  </style>
 </head>
 <body>
 
@@ -32,14 +101,15 @@
   <section class="section">
     <div class="container">
       
-    <div class="page-hero">
-    <div class="container">
-      <div class="hero-badge">High-Fidelity Interface</div>
-      <h1>Target <span class="gradient-text">Antarmuka Final</span><br>33 Halaman Sistem GOFAST</h1>
-        <p>Eksplorasi seluruh layout komponen visual terintegrasi. Setiap frame disesuaikan secara proporsional berdasarkan kedalaman konten alur navigasi.</p>
+      <div class="page-hero" style="padding: 40px 0 10px 0;">
+        <div class="container">
+          <div class="hero-badge">High-Fidelity Interface</div>
+          <h1 style="font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.2; margin-bottom: 15px;">Target <span class="gradient-text">Antarmuka Final</span><br>33 Halaman Sistem GOFAST</h1>
+          <p style="max-width: 650px; color: var(--muted); font-size: 1rem; line-height: 1.6;">Eksplorasi seluruh layout komponen visual terintegrasi. Setiap frame disesuaikan secara proporsional berdasarkan kedalaman konten alur navigasi.</p>
+        </div>
       </div>
 
-      <div class="cards-grid" style="margin-top: 40px;">
+      <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
         
         <div class="glass card reveal">
           <div style="width: 100%; border-radius: var(--r-sm); overflow: hidden; background: #0d0d11; border: 1px solid var(--border);">
@@ -94,7 +164,7 @@
          class="premium-cta-wrapper-link" 
          style="text-decoration: none; display: block; position: relative;">
 
-        <div class="glass card interactive-box" style="position: relative; overflow: hidden; border: 1px solid rgba(111, 66, 251, 0.25); background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(111, 66, 251, 0.05) 100%); border-radius: 32px; padding: 60px 40px; text-align: center; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);">
+        <div class="glass card interactive-box" style="position: relative; overflow: hidden; border: 1px solid rgba(111, 66, 251, 0.25); background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(111, 66, 251, 0.05) 100%); border-radius: 32px; padding: 60px 24px; text-align: center; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);">
           
           <div style="position: absolute; top: 15px; left: 20px; font-family: 'Syne', sans-serif; font-size: 10px; color: #6c63ff; letter-spacing: 2px; opacity: 0.5;">[ SYSTEM: LIVE_CONNECT ]</div>
           <div style="position: absolute; bottom: 15px; right: 20px; font-family: 'Syne', sans-serif; font-size: 10px; color: #6c63ff; letter-spacing: 2px; opacity: 0.5;">// CLICK_ANYWHERE_TO_OPEN</div>
@@ -103,7 +173,7 @@
             ⚡ FULL ACCESS TO DESIGN SYSTEM
           </div>
 
-          <h2 style="font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; color: #fff;">
+          <h2 style="font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; color: #fff;">
             Jelajahi Setiap Piksel di <br><span class="gradient-text">Figma Workspace</span>
           </h2>
 
@@ -121,18 +191,18 @@
     </div>
   </section>
 
-  <section style="margin: 80px 0; padding: 40px 0; overflow: hidden; position: relative; background: linear-gradient(180deg, transparent, rgba(111, 66, 251, 0.03), transparent);">
+  <section style="margin: 60px 0; padding: 40px 0; overflow: hidden; position: relative; background: linear-gradient(180deg, transparent, rgba(111, 66, 251, 0.03), transparent);">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 30px;">
+      <div style="text-align: center; margin-bottom: 30px; padding: 0 15px;">
         <h3 style="font-family: 'Syne', sans-serif; font-size: 22px; color: #fff; margin-bottom: 8px;">
           ✨ Live UI Flow Showcase
         </h3>
-        <p style="font-size: 14px; color: var(--muted);">Aplikasi bergerak secara otomatis mensimulasikan penjelajahan layar interaktif.</p>
+        <p style="font-size: 14px; color: var(--muted);">Aplikasi bergerak secara otomatis mensimulasikan penjelajahan layar interaktif (Geser horizontal).</p>
       </div>
     </div>
 
-    <div style="width: 100%; overflow: hidden; display: flex;">
-      <div style="display: flex; gap: 20px; padding: 10px 0; width: max-content; shrink: 0;">
+    <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 15px;">
+      <div style="display: flex; gap: 20px; padding: 0 20px; width: max-content;">
         <div style="width: 180px; height: 380px; border-radius: 16px; overflow: hidden; border: 2px solid var(--border); flex-shrink: 0;"><img src="../image/Tampilan awal.png" alt="Preview" style="width: 100%; height: 100%; object-fit: cover;"></div>
         <div style="width: 180px; height: 380px; border-radius: 16px; overflow: hidden; border: 2px solid var(--border); flex-shrink: 0;"><img src="../image/Beranda.png" alt="Preview" style="width: 100%; height: 100%; object-fit: cover;"></div>
         <div style="width: 180px; height: 380px; border-radius: 16px; overflow: hidden; border: 2px solid var(--border); flex-shrink: 0;"><img src="../image/Mode Cepat.png" alt="Preview" style="width: 100%; height: 100%; object-fit: cover;"></div>
@@ -154,8 +224,8 @@
   </section>
 
   <section class="container" style="margin-bottom: 100px;">
-    <div class="glass card" style="text-align: center; padding: 60px 40px; background: radial-gradient(circle at center, rgba(111, 66, 251, 0.15) 0%, transparent 70%); border-radius: 24px;">
-      <h2 style="font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 12px; color: #fff;">
+    <div class="glass card" style="text-align: center; padding: 60px 24px; background: radial-gradient(circle at center, rgba(111, 66, 251, 0.15) 0%, transparent 70%); border-radius: 24px;">
+      <h2 style="font-family: 'Syne', sans-serif; font-size: clamp(1.3rem, 3vw, 2rem); margin-bottom: 12px; color: #fff;">
         Ingin Merasakan Pengalaman Langsung?
       </h2>
       <p style="color: var(--muted); max-width: 600px; margin: 0 auto 32px auto; font-size: 15px; line-height: 1.6;">
@@ -164,18 +234,53 @@
       
       <a href="https://www.figma.com/proto/zeWfDdqE2L9W0G9Yodgt2X/Untitled?node-id=0-1&t=uQu8qkPmfVfUbeEe-1" 
          target="_blank" 
-         style="display: inline-flex; align-items: center; gap: 12px; padding: 16px 36px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; color: #fff; background: linear-gradient(135deg, #6f42fb 0%, #6c63ff 100%); border-radius: 100px; text-decoration: none; box-shadow: 0 0 20px rgba(111, 66, 251, 0.4);">
+         style="display: inline-flex; align-items: center; gap: 12px; padding: 16px 36px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: #fff; background: linear-gradient(135deg, #6f42fb 0%, #6c63ff 100%); border-radius: 100px; text-decoration: none; box-shadow: 0 0 20px rgba(111, 66, 251, 0.4);">
         ⚡ Coba Prototype Sekarang
       </a>
     </div>
   </section>
 
-  <footer class="footer">
+ <footer class="footer">
     <div class="container">
       <p>© 2026 <strong>GOFAST</strong> — Design Documentation Project</p>
     </div>
   </footer>
 
-  <script src="../js/app.js"></script>
+  <!-- 1. KITA PAKSA STRUKTUR HEADER BERADA DI LAPISAN TERATAS -->
+  <style>
+    .header {
+      z-index: 9999 !important;
+    }
+    .menu-toggle {
+      position: relative !important;
+      z-index: 10000 !important;
+      cursor: pointer !important;
+    }
+  </style>
+
+  <!-- 2. KODE UTAMA (KITA HAPUS / KOMENTARI SCRIPT APP.JS BIAR GAK BENTROK) -->
+  <!-- <script src="../js/app.js"></script> -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const tombolToggle = document.querySelector('.menu-toggle');
+      const menuNav = document.querySelector('.nav-menu');
+      
+      if (tombolToggle && menuNav) {
+        // Gunakan event pointerdown + click biar super responsif di layar sentuh HP
+        const toggleMenu = function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          tombolToggle.classList.toggle('open');
+          menuNav.classList.toggle('open');
+          
+          console.log("Hamburger di-klik! Status open:", tombolToggle.classList.contains('open'));
+        };
+
+        tombolToggle.addEventListener('click', toggleMenu);
+      }
+    });
+  </script>
 </body>
 </html>

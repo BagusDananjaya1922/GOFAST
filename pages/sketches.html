@@ -8,6 +8,68 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    /* Ganti grid lama yang kaku dengan pembungkus pintar modern */
+    .responsive-sketches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    
+    .responsive-wireframe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .responsive-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Maksa text h1 hero pecah kata kalau kepanjangan di HP bunder */
+    .page-hero h1 {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* CSS Khusus untuk menjinakkan elemen Figma CTA Box bawah di layar HP */
+    @media (max-width: 768px) {
+      .page-hero h1 {
+        font-size: 2.2rem !important;
+        line-height: 1.2;
+      }
+      .responsive-sketches-grid, 
+      .responsive-wireframe-grid {
+        grid-template-columns: 1fr !important; /* Turun jadi 1 kolom rapi di HP */
+        gap: 20px;
+      }
+      .sketches-dynamic-cta {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 20px !important;
+      }
+      .sketches-dynamic-cta-left {
+        flex-direction: column !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 15px !important;
+      }
+      .sketches-dynamic-arrow {
+        display: none !important; /* Sembunyikan panah di HP biar clean */
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -45,14 +107,14 @@
         <p style="color: var(--muted); max-width: 600px;">Berikut adalah kompilasi coretan alternatif layout yang diajukan oleh masing-hari anggota tim sebelum dikerucutkan.</p>
       </div>
 
-      <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+      <div class="responsive-sketches-grid">
         
-        <div class="glass card reveal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+        <div class="glass card reveal responsive-card">
           <div>
             <div style="position: relative; width: 100%; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); background: rgba(0,0,0,0.2); margin-bottom: 15px;">
               <img src="../image/Design 1.png" alt="Sketsa Opsi 1" style="width: 100%; height: 250px; object-fit: cover; display: block;">
             </div>
-            <span class="persona-tag" style="background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); color: #a78bfa; margin-bottom: 10px;">Terpilih (Prioritas Utama)</span>
+            <span class="persona-tag" style="display: inline-block; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); color: #a78bfa; margin-bottom: 10px;">Terpilih (Prioritas Utama)</span>
             <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi A</h3>
             <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin: 0;">
               Berfokus pada penyederhanaan alur otentikasi login/register, penyediaan peta indikator yang ringkas, serta kemudahan melacak histori perjalanan di bagian profil.
@@ -60,12 +122,12 @@
           </div>
         </div>
 
-        <div class="glass card reveal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+        <div class="glass card reveal responsive-card">
           <div>
             <div style="position: relative; width: 100%; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); background: rgba(0,0,0,0.2); margin-bottom: 15px;">
               <img src="../image/Design 2.png" alt="Sketsa Opsi 2" style="width: 100%; height: 250px; object-fit: cover; display: block;">
             </div>
-            <span class="persona-tag" style="background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); color: #a78bfa; margin-bottom: 10px;">Terpilih (Kombinasi Konsep)</span>
+            <span class="persona-tag" style="display: inline-block; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); color: #a78bfa; margin-bottom: 10px;">Terpilih (Kombinasi Konsep)</span>
             <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi B</h3>
             <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin: 0;">
               Menonjolkan fitur *Pickup Suggestion* titik penjemputan alternatif yang dinamis dan visualisasi peta kemacetan lalu lintas real-time yang informatif bagi lansia.
@@ -73,12 +135,12 @@
           </div>
         </div>
 
-        <div class="glass card reveal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+        <div class="glass card reveal responsive-card">
           <div>
             <div style="position: relative; width: 100%; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); background: rgba(0,0,0,0.2); margin-bottom: 15px;">
               <img src="../image/Design 3.png" alt="Sketsa Opsi 3" style="width: 100%; height: 250px; object-fit: cover; display: block;">
             </div>
-            <span class="persona-tag" style="background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); color: #a78bfa; margin-bottom: 10px;">Terpilih (Referensi Layout)</span>
+            <span class="persona-tag" style="display: inline-block; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); color: #a78bfa; margin-bottom: 10px;">Terpilih (Referensi Layout)</span>
             <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi C</h3>
             <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin: 0;">
               Konsep layout beranda minimalis dengan menu pencarian instan sekali ketuk (*1-Tap Booking*) serta antarmuka ulasan performa driver pasca-berkendara.
@@ -86,12 +148,12 @@
           </div>
         </div>
 
-        <div class="glass card reveal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+        <div class="glass card reveal responsive-card">
           <div>
             <div style="position: relative; width: 100%; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); background: rgba(0,0,0,0.2); margin-bottom: 15px;">
               <img src="../image/Design 4.png" alt="Sketsa Opsi 4" style="width: 100%; height: 250px; object-fit: cover; display: block;">
             </div>
-            <span class="persona-tag" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--muted); margin-bottom: 10px;">Arsip Eksperimen</span>
+            <span class="persona-tag" style="display: inline-block; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--muted); margin-bottom: 10px;">Arsip Eksperimen</span>
             <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi D</h3>
             <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin: 0;">
               Eksperimen tata letak kompleks dengan indikator densitas ketersediaan jumlah driver aktif berbasis grafik batang langsung pada halaman pemilihan layanan.
@@ -99,12 +161,12 @@
           </div>
         </div>
 
-        <div class="glass card reveal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+        <div class="glass card reveal responsive-card">
           <div>
             <div style="position: relative; width: 100%; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); background: rgba(0,0,0,0.2); margin-bottom: 15px;">
               <img src="../image/Design 5.png" alt="Sketsa Opsi 5" style="width: 100%; height: 250px; object-fit: cover; display: block;">
             </div>
-            <span class="persona-tag" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--muted); margin-bottom: 10px;">Arsip Eksperimen</span>
+            <span class="persona-tag" style="display: inline-block; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--muted); margin-bottom: 10px;">Arsip Eksperimen</span>
             <h3 style="margin: 5px 0 10px 0; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Opsi Eksplorasi E</h3>
             <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin: 0;">
               Struktur *wireframe* awal berbasis grid persegi untuk pemetaan titik temu alternatif dan penyusunan informasi ringkasan invoice pembayaran tarif komuter.
@@ -121,15 +183,15 @@
         <p style="color: var(--muted); max-width: 650px;">Berdasarkan perolehan suara terbanyak, berikut adalah hasil pengerjaan tim desainer yang telah sukses mentransformasikan sketsa konseptual menjadi struktur tata letak digital (Wireframe Lo-Fi).</p>
       </div>
 
-      <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;">
+      <div class="responsive-wireframe-grid">
         
-        <div class="glass card reveal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+        <div class="glass card reveal responsive-card">
           <div>
             <div style="position: relative; width: 100%; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); background: rgba(0,0,0,0.2); margin-bottom: 15px;">
               <img src="../image/wf1.png" alt="Wireframe Splash & Login" style="width: 100%; height: 250px; object-fit: cover; display: block;">
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap: wrap; gap: 8px;">
-              <span class="persona-tag" style="background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3);">Wireframe Selesai</span>
+              <span class="persona-tag" style="display: inline-block; background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3); margin: 0;">Wireframe Selesai</span>
               <span style="font-size:0.8rem; color:#8b5cf6; font-weight:600;">Opsi A & C</span>
             </div>
             <h3 style="margin: 5px 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.2rem;">Splash, Login & OTP</h3>
@@ -139,13 +201,13 @@
           </div>
         </div>
 
-        <div class="glass card reveal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+        <div class="glass card reveal responsive-card">
           <div>
             <div style="position: relative; width: 100%; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); background: rgba(0,0,0,0.2); margin-bottom: 15px;">
               <img src="../image/wf2.png" alt="Wireframe Utama Beranda" style="width: 100%; height: 250px; object-fit: cover; display: block;">
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap: wrap; gap: 8px;">
-              <span class="persona-tag" style="background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3);">Wireframe Selesai</span>
+              <span class="persona-tag" style="display: inline-block; background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3); margin: 0;">Wireframe Selesai</span>
               <span style="font-size:0.8rem; color:#8b5cf6; font-weight:600;">Opsi B</span>
             </div>
             <h3 style="margin: 5px 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.2rem;">Beranda & Peta Navigasi</h3>
@@ -155,13 +217,13 @@
           </div>
         </div>
 
-        <div class="glass card reveal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+        <div class="glass card reveal responsive-card">
           <div>
             <div style="position: relative; width: 100%; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); background: rgba(0,0,0,0.2); margin-bottom: 15px;">
               <img src="../image/wf3.png" alt="Wireframe Pemilihan Layanan" style="width: 100%; height: 250px; object-fit: cover; display: block;">
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap: wrap; gap: 8px;">
-              <span class="persona-tag" style="background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3);">Wireframe Selesai</span>
+              <span class="persona-tag" style="display: inline-block; background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3); margin: 0;">Wireframe Selesai</span>
               <span style="font-size:0.8rem; color:#8b5cf6; font-weight:600;">Opsi E</span>
             </div>
             <h3 style="margin: 5px 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.2rem;">Penetapan Tarif & Invoice</h3>
@@ -171,13 +233,13 @@
           </div>
         </div>
 
-        <div class="glass card reveal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+        <div class="glass card reveal responsive-card">
           <div>
             <div style="position: relative; width: 100%; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); background: rgba(0,0,0,0.2); margin-bottom: 15px;">
               <img src="../image/wf4.png" alt="Wireframe Profil & Ulasan" style="width: 100%; height: 250px; object-fit: cover; display: block;">
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap: wrap; gap: 8px;">
-              <span class="persona-tag" style="background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3);">Wireframe Selesai</span>
+              <span class="persona-tag" style="display: inline-block; background:rgba(20, 184, 166, 0.15); color:#14B8A6; border-color:rgba(20, 184, 166, 0.3); margin: 0;">Wireframe Selesai</span>
               <span style="font-size:0.8rem; color:#8b5cf6; font-weight:600;">Opsi C</span>
             </div>
             <h3 style="margin: 5px 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.2rem;">Riwayat & Rating Driver</h3>
@@ -200,9 +262,9 @@
            class="premium-cta-wrapper-link"
            style="text-decoration: none; display: block; color: inherit;">
           
-          <div class="glass card interactive-box" style="display: flex; align-items: center; justify-content: space-between; padding: 30px; border-radius: var(--r-md); transition: transform var(--t-base) var(--ease-out), border-color var(--t-base);">
+          <div class="glass card interactive-box sketches-dynamic-cta" style="display: flex; align-items: center; justify-content: space-between; padding: 30px; border-radius: var(--r-md); transition: transform var(--t-base) var(--ease-out), border-color var(--t-base);">
             
-            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <div class="sketches-dynamic-cta-left" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
               <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center;" class="pulse-icon">
                 <svg width="36" height="54" viewBox="0 0 36 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 13.5C9 8.52944 13.0294 4.5 18 4.5C22.9706 4.5 27 8.52944 27 13.5C27 18.4706 22.9706 22.5 18 22.5C13.0294 22.5 9 18.4706 9 13.5Z" fill="#F24E1E"/>
@@ -220,7 +282,7 @@
               </div>
             </div>
 
-            <div style="font-size: 1.5rem; color: var(--muted);" class="arrow-vector">
+            <div style="font-size: 1.5rem; color: var(--muted);" class="arrow-vector sketches-dynamic-arrow">
               ➔
             </div>
 

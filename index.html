@@ -8,10 +8,119 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Mantra utama anti-bocor horizontal di HP */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Mengamankan elemen gambar agar tidak pernah keluar dari jalurnya */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Pengaman lapisan Header & Tombol Hamburger Menu */
+    .header {
+      z-index: 9999 !important;
+    }
+    .menu-toggle {
+      position: relative !important;
+      z-index: 10000 !important;
+      cursor: pointer !important;
+    }
+
+    /* Perbaikan Layout Dropdown agar tidak memotong box */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #0d0d11;
+      min-width: 280px;
+      box-shadow: 0px 8px 24px rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      z-index: 500;
+      padding: 10px;
+    }
+    .dropdown-content.show {
+      display: block !important;
+    }
+
+    /* SCRIPT RESPONSIVE PEMBAAS (BREAKPOINT MOBILE) */
+    @media (max-width: 991px) {
+      /* Paksa susunan Hero Layout dari samping-sampingan jadi atas-bawah */
+      .hero-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+      }
+      .hero-text, .hero-card {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      /* Sesuaikan susunan kartu filosofi & screenshot */
+      .about-card, .about-card-reverse {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 25px !important;
+        padding: 25px !important;
+      }
+      .about-image-wrapper, .about-text-wrapper {
+        width: 100% !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Drawer Navigasi Mobile agar sinkron dengan status kelas .open */
+      .nav-menu.open {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        background: #050816 !important;
+        z-index: 1999 !important;
+      }
+      .nav-menu a {
+        color: #ffffff !important;
+        opacity: 1 !important;
+      }
+      /* Tombol hero biar numpuk rapi kalau layarnya terlalu sempit */
+      .hero-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        width: 100%;
+      }
+      .btn-primary, .dropdown, #dropdownBtn {
+        width: 100% !important;
+        text-align: center;
+      }
+      .dropdown-content {
+        left: 0 !important;
+        width: 100% !important;
+      }
+      /* Grid Fitur otomatis satu kolom */
+      .cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      /* Teks mini info agar tidak gepeng */
+      .hero-mini-info {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+        gap: 15px !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ─── HEADER & NAVIGATION ─── -->
   <header class="header">
     <div class="container navbar">
       <a href="index.html" class="logo">GOFAST</a>
@@ -32,100 +141,99 @@
     </div>
   </header>
 
-  <!-- ─── HERO SECTION ─── -->
-  <section class="hero">
+  <section class="hero" style="position: relative; overflow: hidden;">
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
 
-    <div class="container hero-layout">
+    <div class="container hero-layout" style="display: flex; gap: 30px; align-items: center; justify-content: space-between;">
       
-      <div class="hero-text">
-        <div class="hero-badge">
+      <div class="hero-text" style="flex: 1; max-width: 55%;">
+        <div class="hero-badge" style="display: inline-block; margin-bottom: 15px;">
           Smart Transportation Platform
         </div>
 
-        <h1>
+        <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.2; margin-bottom: 20px; font-family: 'Syne', sans-serif;">
           Experience The Future Of<br>
           <span class="gradient-text">GOFAST</span>
         </h1>
 
-        <p class="hero-desc">
+        <p class="hero-desc" style="font-family: 'DM Sans', sans-serif; font-size: 1rem; line-height: 1.6; margin-bottom: 30px; color: var(--muted);">
           GOFAST adalah platform transportasi digital modern yang menghadirkan pengalaman perjalanan lebih cepat, aman, dan efisien melalui desain futuristik, sistem pintar, dan pengalaman pengguna premium.
         </p>
 
-        <div class="hero-buttons">
-          <a href="https://www.figma.com/proto/zeWfDdqE2L9W0G9Yodgt2X/Untitled?node-id=0-1&t=uQu8qkPmfVfUbeEe-1" target="_blank" class="btn-primary">
+        <div class="hero-buttons" style="display: flex; gap: 15px; align-items: center; margin-bottom: 40px; flex-wrap: wrap;">
+          <a href="https://www.figma.com/proto/zeWfDdqE2L9W0G9Yodgt2X/Untitled?node-id=0-1&t=uQu8qkPmfVfUbeEe-1" target="_blank" class="btn-primary" style="text-decoration: none; display: inline-block;">
             ⚡ Explore Prototype
           </a>
 
           <div class="dropdown">
-            <button type="button" class="btn-secondary" id="dropdownBtn">
+            <button type="button" class="btn-secondary" id="dropdownBtn" style="cursor: pointer;">
               📄 Open Documentation
             </button>
             
             <div class="dropdown-content" id="dropdownMenu">
-              <a href="https://www.figma.com/design/Y3NHLR5LgUpNu5y3gUyGEd/UI-UX-DESIGN?node-id=270-38&p=f&t=9uHP1MUr9zSFLrHZ-0" target="_blank" class="dropdown-item">
-                <span class="opt-title">Opsi 1: Design & Wireframe</span>
-                <span class="opt-desc">Data riset, Crazy Design, dan Low-Fidelity layout.</span>
+              <a href="https://www.figma.com/design/Y3NHLR5LgUpNu5y3gUyGEd/UI-UX-DESIGN?node-id=270-38&p=f&t=9uHP1MUr9zSFLrHZ-0" target="_blank" class="dropdown-item" style="text-decoration: none; display: block; margin-bottom: 10px;">
+                <span class="opt-title" style="display: block; font-weight: 700; color: #fff; font-size: 14px;">Opsi 1: Design & Wireframe</span>
+                <span class="opt-desc" style="display: block; font-size: 11px; color: var(--muted);">Data riset, Crazy Design, dan Low-Fidelity layout.</span>
               </a>
-              <a href="https://www.figma.com/board/tk6ZVI2sdPOY2IP51L4pbr/LOW-FIDELITY?node-id=0-1&p=f&t=aWBiuvXx0p4Ex2Sm-0" target="_blank" class="dropdown-item">
-                <span class="opt-title">Opsi 2: User Flow Aplikasi</span>
-                <span class="opt-desc">Alur perjalanan pengguna dan logika sistem.</span>
+              <a href="https://www.figma.com/board/tk6ZVI2sdPOY2IP51L4pbr/LOW-FIDELITY?node-id=0-1&p=f&t=aWBiuvXx0p4Ex2Sm-0" target="_blank" class="dropdown-item" style="text-decoration: none; display: block; margin-bottom: 10px;">
+                <span class="opt-title" style="display: block; font-weight: 700; color: #fff; font-size: 14px;">Opsi 2: User Flow Aplikasi</span>
+                <span class="opt-desc" style="display: block; font-size: 11px; color: var(--muted);">Alur perjalanan pengguna dan logika sistem.</span>
               </a>
-              <a href="https://www.figma.com/design/zeWfDdqE2L9W0G9Yodgt2X/Untitled?node-id=0-1&p=f&t=uQu8qkPmfVfUbeEe-0" target="_blank" class="dropdown-item">
-                <span class="opt-title">Opsi 3: UI Final</span>
-                <span class="opt-desc">Tampilan UI Final.</span>
+              <a href="https://www.figma.com/design/zeWfDdqE2L9W0G9Yodgt2X/Untitled?node-id=0-1&p=f&t=uQu8qkPmfVfUbeEe-0" target="_blank" class="dropdown-item" style="text-decoration: none; display: block;">
+                <span class="opt-title" style="display: block; font-weight: 700; color: #fff; font-size: 14px;">Opsi 3: UI Final</span>
+                <span class="opt-desc" style="display: block; font-size: 11px; color: var(--muted);">Tampilan UI Final.</span>
               </a>
             </div>
           </div>
         </div>
 
-        <div class="hero-mini-info">
+        <div class="hero-mini-info" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
           <div class="mini-info-card">
-            <h4>24/7</h4>
-            <span>Layanan Aktif</span>
+            <h4 style="font-family: 'Syne', sans-serif; margin: 0 0 4px 0;">24/7</h4>
+            <span style="font-size: 12px; color: var(--muted);">Layanan Aktif</span>
           </div>
           <div class="mini-info-card">
-            <h4>Real-Time</h4>
-            <span>Tracking System</span>
+            <h4 style="font-family: 'Syne', sans-serif; margin: 0 0 4px 0;">Real-Time</h4>
+            <span style="font-size: 12px; color: var(--muted);">Tracking System</span>
           </div>
           <div class="mini-info-card">
-            <h4>Modern</h4>
-            <span>UI Experience</span>
+            <h4 style="font-family: 'Syne', sans-serif; margin: 0 0 4px 0;">Modern</h4>
+            <span style="font-size: 12px; color: var(--muted);">UI Experience</span>
           </div>
         </div>
       </div>
 
-      <div class="hero-card">
-        <div class="glass card">
-          <h3 style="margin-bottom:20px; font-family:'Syne', sans-serif;">
+      <div class="hero-card" style="flex: 1; max-width: 40%; min-width: 280px;">
+        <div class="glass card" style="padding: 30px; border-radius: var(--r-md);">
+          <h3 class="hero-card-title" style="font-family: 'Syne', sans-serif; margin-top: 0; margin-bottom: 20px; font-size: 1.4rem;">
             Latar Belakang
           </h3>
 
-          <div style="display: flex; flex-direction: column; gap: 18px;">
-            <div style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid #6f42fb; padding: 12px 16px; border-radius: 0 var(--r-sm) var(--r-sm) 0;">
-              <h4 style="margin: 0 0 6px 0; font-size: 14px; font-family: 'Syne', sans-serif; color: #fff;">
+          <div class="hero-card-content" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="bg-item">
+              <h4 style="font-family: 'Syne', sans-serif; margin: 0 0 6px 0; font-size: 1rem; color: #6c63ff;">
                 Mobilitas Urban & Inefisiensi
               </h4>
-              <p style="margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted);">
+              <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: var(--muted);">
                 Kepadatan lalu lintas perkotaan sering kali memicu ketidakpastian waktu perjalanan. Pengguna layanan transportasi konvensional kerap terjebak dalam estimasi kedatangan yang tidak akurat.
               </p>
             </div>
 
-            <div style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid #6f42fb; padding: 12px 16px; border-radius: 0 var(--r-sm) var(--r-sm) 0;">
-              <h4 style="margin: 0 0 6px 0; font-size: 14px; font-family: 'Syne', sans-serif; color: #fff;">
+            <div class="bg-item">
+              <h4 style="font-family: 'Syne', sans-serif; margin: 0 0 6px 0; font-size: 1rem; color: #6c63ff;">
                 Kebutuhan Fleksibilitas Tinggi
               </h4>
-              <p style="margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted);">
+              <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: var(--muted);">
                 Masyarakat modern membutuhkan platform yang tidak sekadar mengantar dari titik A ke B, melainkan mampu memberikan prediksi cerdas, rute alternatif, dan pemesanan instan yang adaptif.
               </p>
             </div>
 
-            <div style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid #6f42fb; padding: 12px 16px; border-radius: 0 var(--r-sm) var(--r-sm) 0;">
-              <h4 style="margin: 0 0 6px 0; font-size: 14px; font-family: 'Syne', sans-serif; color: #fff;">
+            <div class="bg-item">
+              <h4>
                 Solusi Premium GOFAST
               </h4>
-              <p style="margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted);">
+              <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: var(--muted);">
                 Hadir sebagai jembatan teknologi dengan antarmuka futuristik, menghadirkan transparansi waktu secara real-time demi mengembalikan kendali penuh atas jadwal harian ke tangan pengguna.
               </p>
             </div>
@@ -136,172 +244,176 @@
     </div>
   </section>
 
-  <!-- ─── ABOUT & PHILOSOPHY SECTION ─── -->
   <section class="section">
     <div class="container">
 
-      <div class="section-title">
-        <span>About Project</span>
-        <h2>
+      <div class="section-title" style="text-align: center; margin-bottom: 50px;">
+        <span style="color:#14B8A6; font-weight:700; text-transform:uppercase; font-size: 12px; letter-spacing: 1.5px;">About Project</span>
+        <h2 style="font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); margin: 10px 0 15px 0;">
           Smart Transportation<br>
           Experience
         </h2>
-        <p>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--muted);">
           GOFAST merupakan aplikasi transportasi digital modern dengan pendekatan premium UI/UX yang menggabungkan teknologi pintar, desain futuristik, dan pengalaman pengguna yang nyaman.
         </p>
       </div>
 
-      <!-- Identity Card -->
-      <div class="glass card" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; padding: 40px; margin-bottom: 30px;">
-        <div style="flex: 1; min-width: 280px; text-align: center;">
-          <img src="image/logo.png" alt="GOFAST Logo" style="max-width: 220px; width: 100%; height: auto; filter: drop-shadow(0px 8px 24px rgba(111, 66, 251, 0.3));">
+      <div class="glass card about-card" style="display: flex; align-items: center; gap: 40px; margin-bottom: 40px; padding: 40px; border-radius: var(--r-md);">
+        <div class="about-image-wrapper" style="width: 40%; text-align: center; flex-shrink: 0;">
+          <img src="image/logo.png" alt="GOFAST Logo" class="logo-img" style="max-height: 200px; object-fit: contain;">
         </div>
-        <div style="flex: 1.5; min-width: 300px;">
-          <span style="color: #6C63FF; font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; display: block; margin-bottom: 8px;">Identity Philosophy</span>
-          <h3 style="font-family: 'Syne', sans-serif; font-size: 24px; margin-bottom: 16px;">Filosofi Logo GOFAST</h3>
-          <p style="line-height: 1.6; margin-bottom: 12px; font-size: 15px; color: var(--muted);">
+        <div class="about-text-wrapper" style="width: 60%;">
+          <span class="tag-label" style="background: rgba(20, 184, 166, 0.1); color: #14B8A6; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700;">Identity Philosophy</span>
+          <h3 style="font-family: 'Syne', sans-serif; font-size: 1.5rem; margin: 15px 0 10px 0;">Filosofi Logo GOFAST</h3>
+          <p class="desc-text" style="color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
             Logo GOFAST tersusun atas tiga elemen panah berlapis miring ke kanan atas yang membentuk harmoni visual yang modern, tegas, dan aerodinamis. Struktur ini menyimpan beberapa makna mendalam:
           </p>
-          <ul style="padding-left: 20px; line-height: 1.7; font-size: 14px; color: var(--muted);">
-            <li style="margin-bottom: 8px;"><strong style="color: #fff;">Akselerasi & Kecepatan:</strong> Bentuk panah yang mengarah ke kanan atas merepresentasikan pertumbuhan, kecepatan dinamis, dan pergerakan efisien yang menjadi core value dari platform GOFAST.</li>
-            <li style="margin-bottom: 8px;"><strong style="color: #fff;">Tiga Lapisan (Keberlanjutan):</strong> Tiga struktur panah menggambarkan integrasi tiga pilar utama platform: Keamanan, Ketepatan Waktu (Real-time), dan Kenyamanan Pengguna (Premium UX).</li>
-            <li style="margin-bottom: 8px;"><strong style="color: #fff;">Warna Modern Purple:</strong> Penggunaan warna ungu neon memberikan kesan futuristik, teknologi tinggi (smart system), sekaligus menunjukkan identitas visual yang premium dan elegan.</li>
+          <ul class="styled-list" style="padding-left: 20px; color: var(--muted); font-size: 0.9rem; line-height: 1.6;">
+            <li style="margin-bottom: 8px;"><strong>Akselerasi & Kecepatan:</strong> Bentuk panah yang mengarah ke kanan atas merepresentasikan pertumbuhan, kecepatan dinamis, dan pergerakan efisien yang menjadi core value dari platform GOFAST.</li>
+            <li style="margin-bottom: 8px;"><strong>Tiga Lapisan (Keberlanjutan):</strong> Tiga struktur panah menggambarkan integrasi tiga pilar utama platform: Keamanan, Ketepatan Waktu (Real-time), dan Kenyamanan Pengguna (Premium UX).</li>
+            <li><strong>Warna Modern Purple:</strong> Penggunaan warna ungu neon memberikan kesan futuristik, teknologi tinggi (smart system), sekaligus menunjukkan identitas visual yang premium dan elegan.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Interface Value Card -->
-      <div class="glass card" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; padding: 40px; margin-bottom: 50px; flex-direction: row-reverse;">
-        <div style="flex: 1; min-width: 280px; text-align: center;">
-          <img src="image/Screenshot From 2026-05-29 17-46-53.png" alt="GOFAST Mode Cepat Screen" style="max-width: 240px; width: 100%; height: auto; border-radius: var(--r-md); box-shadow: 0px 12px 32px rgba(111, 66, 251, 0.25); border: 1px solid var(--border);">
+      <div class="glass card about-card about-card-reverse" style="display: flex; align-items: center; gap: 40px; margin-bottom: 50px; padding: 40px; border-radius: var(--r-md); flex-direction: row-reverse;">
+        <div class="about-image-wrapper" style="width: 40%; text-align: center; flex-shrink: 0;">
+          <img src="image/Screenshot From 2026-05-29 17-46-53.png" alt="GOFAST Mode Cepat Screen" class="screenshot-img" style="border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
         </div>
-        <div style="flex: 1.5; min-width: 300px;">
-          <span style="color: #6C63FF; font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; display: block; margin-bottom: 8px;">Core Interface Value</span>
-          <h3 style="font-family: 'Syne', sans-serif; font-size: 24px; margin-bottom: 16px;">Keunggulan Antarmuka Mode Cepat</h3>
-          <p style="line-height: 1.6; margin-bottom: 12px; font-size: 15px; color: var(--muted);">
+        <div class="about-text-wrapper" style="width: 60%;">
+          <span class="tag-label" style="background: rgba(108, 99, 255, 0.1); color: #6c63ff; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700;">Core Interface Value</span>
+          <h3 style="font-family: 'Syne', sans-serif; font-size: 1.5rem; margin: 15px 0 10px 0;">Keunggulan Antarmuka Mode Cepat</h3>
+          <p class="desc-text" style="color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
             Halaman <strong>Mode Cepat</strong> dirancang secara khusus untuk memangkas hambatan konvensional dalam proses pemesanan transportasi digital. Antarmuka ini mengintegrasikan efisiensi aksi tinggi melalui beberapa keunggulan utama:
           </p>
-          <ul style="padding-left: 20px; line-height: 1.7; font-size: 14px; color: var(--muted);">
-            <li style="margin-bottom: 12px;"><strong style="color: #fff;">Minimalisasi Aksi Pemesanan:</strong> Alur pemesanan dirancang linear dan ringkas. Pengguna dapat menentukan titik penjemputan, tujuan, dan memilih jenis kendaraan langsung dalam satu halaman tanpa perlu berpindah-pindah menu.</li>
-            <li style="margin-bottom: 12px;"><strong style="color: #fff;">Rekomendasi Pintar (Smart Suggestions):</strong> Fitur "Saran Untuk Anda" mendeteksi rute rutin pengguna (seperti Kampus atau Rumah) secara otomatis demi mempercepat pengisian alamat tujuan hanya dengan satu ketukan.</li>
-            <li style="margin-bottom: 12px;"><strong style="color: #fff;">Transparansi Struktur Biaya:</strong> Detail tarif dasar, biaya layanan, dan akumulasi total harga ditampilkan dengan hierarki teks yang tegas sebelum pengguna menekan tombol aksi konfirmasi.</li>
-            <li style="margin-bottom: 12px;"><strong style="color: #fff;">Desain Responsif Satu Tangan:</strong> Peletakan tombol utama "Pesan Sekarang" diposisikan secara presisi pada zona jangkauan ibu jari bawah (*bottom navigation zone*) untuk memastikan kemudahan operasional tinggi di segala situasi.</li>
+          <ul class="styled-list" style="padding-left: 20px; color: var(--muted); font-size: 0.9rem; line-height: 1.6;">
+            <li style="margin-bottom: 8px;"><strong>Minimalisasi Aksi Pemesanan:</strong> Alur pemesanan dirancang linear dan ringkas. Pengguna dapat menentukan titik penjemputan, tujuan, dan memilih jenis kendaraan langsung dalam satu halaman tanpa perlu berpindah-pindah menu.</li>
+            <li style="margin-bottom: 8px;"><strong>Rekomendasi Pintar (Smart Suggestions):</strong> Fitur "Saran Untuk Anda" mendeteksi rute rutin pengguna (seperti Kampus atau Rumah) secara otomatis demi mempercepat pengisian alamat tujuan hanya dengan satu ketukan.</li>
+            <li style="margin-bottom: 8px;"><strong>Transparansi Struktur Biaya:</strong> Detail tarif dasar, biaya layanan, dan akumulasi total harga ditampilkan dengan hierarki teks yang tegas sebelum pengguna menekan tombol aksi konfirmasi.</li>
+            <li><strong>Desain Responsif Satu Tangan:</strong> Peletakan tombol utama "Pesan Sekarang" diposisikan secara presisi pada zona jangkauan ibu jari bawah (*bottom navigation zone*) untuk memastikan kemudahan operasional tinggi di segala situasi.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Feature Grid 1 -->
-      <div class="cards-grid">
-        <div class="glass card feature-card reveal">
-          <div class="card-icon">🎨</div>
-          <h3>Modern Interface</h3>
-          <p>Tampilan dark modern dengan konsep glassmorphism, smooth gradient, dan visual premium untuk menciptakan pengalaman aplikasi yang futuristik.</p>
+      <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+        <div class="glass card feature-card reveal" style="padding: 30px; border-radius: var(--r-sm);">
+          <div class="card-icon" style="font-size: 2rem; margin-bottom: 15px;">🎨</div>
+          <h3 style="font-family: 'Syne', sans-serif; margin: 0 0 10px 0;">Modern Interface</h3>
+          <p style="margin:0; font-size:0.9rem; color:var(--muted); line-height:1.5;">Tampilan dark modern dengan konsep glassmorphism, smooth gradient, dan visual premium untuk menciptakan pengalaman aplikasi yang futuristik.</p>
         </div>
 
-        <div class="glass card feature-card reveal" style="transition-delay:.1s">
-          <div class="card-icon">⚡</div>
-          <h3>Smart Navigation</h3>
-          <p>Sistem navigasi dan booking dirancang lebih cepat, intuitif, dan efisien untuk membantu mobilitas pengguna sehari-hari.</p>
+        <div class="glass card feature-card reveal" style="transition-delay:.1s; padding: 30px; border-radius: var(--r-sm);">
+          <div class="card-icon" style="font-size: 2rem; margin-bottom: 15px;">⚡</div>
+          <h3 style="font-family: 'Syne', sans-serif; margin: 0 0 10px 0;">Smart Navigation</h3>
+          <p style="margin:0; font-size:0.9rem; color:var(--muted); line-height:1.5;">Sistem navigasi dan booking dirancang lebih cepat, intuitif, dan efisien untuk membantu mobilitas pengguna sehari-hari.</p>
         </div>
 
-        <div class="glass card feature-card reveal" style="transition-delay:.2s">
-          <div class="card-icon">📋</div>
+        <div class="glass card feature-card reveal" style="transition-delay:.2s; padding: 30px; border-radius: var(--r-sm);">
+          <div class="card-icon" style="font-size: 2rem; margin-bottom: 15px;">📋</div>
           <h3>Full Documentation</h3>
-          <p>Seluruh proses pengembangan GOFAST terdokumentasi secara profesional mulai dari research, persona, user flow, prototype, hingga testing.</p>
+          <p style="margin:0; font-size:0.9rem; color:var(--muted); line-height:1.5;">Seluruh proses pengembangan GOFAST terdokumentasi secara profesional mulai dari research, persona, user flow, prototype, hingga testing.</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ─── VALUE PROPOSITION ─── -->
-  <section class="section">
+<section class="section" style="padding-top: 10px; margin-top: 0; padding-bottom: 10px;">
     <div class="container">
-      <div class="section-title">
-        <span>Value Proposition</span>
-        <h2>
+      <div class="section-title" style="text-align: center; margin-bottom: 20px;">
+        <span style="color:#6c63ff; font-weight:700; text-transform:uppercase; font-size: 12px; letter-spacing: 1.5px;">Value Proposition</span>
+        <h2 style="font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); margin: 10px 0 15px 0;">
           Kepastian Waktu<br>
           di Tangan Anda
         </h2>
-        <p>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--muted);">
           Kami memahami bahwa setiap menit sangat berharga. GOFAST membantu pengguna menghindari risiko keterlambatan dengan sistem estimasi waktu perjalanan yang akurat, transparan, dan diperbarui secara real-time.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ─── CORE FEATURES ─── -->
-  <section class="section soft-section">
+  <section class="section soft-section" style="background: rgba(255,255,255,0.01); padding: 60px 0;">
     <div class="container">
-      <div class="section-title">
-        <span>Core Features</span>
-        <h2>
+      <div class="section-title" style="text-align: center; margin-bottom: 40px;">
+        <span style="color:#14B8A6; font-weight:700; text-transform:uppercase; font-size: 12px; letter-spacing: 1.5px;">Core Features</span>
+        <h2 style="font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); margin: 10px 0;">
           Fitur Cerdas untuk<br>
           Efisiensi Perjalanan
         </h2>
       </div>
 
-      <div class="cards-grid">
-        <div class="glass card feature-card">
-          <div class="card-icon">⏱️</div>
-          <h3>Smart Dynamic ETAs</h3>
-          <p>Estimasi perjalanan diperbarui secara dinamis sepanjang perjalanan untuk meningkatkan akurasi waktu pengguna.</p>
+      <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px;">
+        <div class="glass card feature-card" style="padding: 25px; border-radius: var(--r-sm);">
+          <div class="card-icon" style="font-size: 1.8rem; margin-bottom: 12px;">⏱️</div>
+          <h3 style="font-family: 'Syne', sans-serif; margin: 0 0 10px 0; font-size: 1.2rem;">Smart Dynamic ETAs</h3>
+          <p style="margin:0; font-size:0.85rem; color:var(--muted); line-height:1.5;">Estimasi perjalanan diperbarui secara dinamis sepanjang perjalanan untuk meningkatkan akurasi waktu pengguna.</p>
         </div>
 
-        <div class="glass card feature-card">
-          <div class="card-icon">🗺️</div>
-          <h3>Traffic Prediction</h3>
-          <p>Pengguna dapat melihat kondisi lalu lintas dan potensi keterlambatan sebelum memesan.</p>
+        <div class="glass card feature-card" style="padding: 25px; border-radius: var(--r-sm);">
+          <div class="card-icon" style="font-size: 1.8rem; margin-bottom: 12px;">🗺️</div>
+          <h3 style="font-family: 'Syne', sans-serif; margin: 0 0 10px 0; font-size: 1.2rem;">Traffic Prediction</h3>
+          <p style="margin:0; font-size:0.85rem; color:var(--muted); line-height:1.5;">Pengguna dapat melihat kondisi lalu lintas dan potensi keterlambatan sebelum memesan.</p>
         </div>
 
-        <div class="glass card feature-card">
-          <div class="card-icon">⚡</div>
-          <h3>1-Tap Booking</h3>
-          <p>Sistem otomatis mengenali pola perjalanan rutin pengguna untuk pemesanan lebih cepat.</p>
+        <div class="glass card feature-card" style="padding: 25px; border-radius: var(--r-sm);">
+          <div class="card-icon" style="font-size: 1.8rem; margin-bottom: 12px;">⚡</div>
+          <h3 style="font-family: 'Syne', sans-serif; margin: 0 0 10px 0; font-size: 1.2rem;">1-Tap Booking</h3>
+          <p style="margin:0; font-size:0.85rem; color:var(--muted); line-height:1.5;">Sistem otomatis mengenali pola perjalanan rutin pengguna untuk pemesanan lebih cepat.</p>
         </div>
 
-        <div class="glass card feature-card">
-          <div class="card-icon">📍</div>
-          <h3>Alternative Pickup</h3>
-          <p>Sistem menyarankan titik jemput alternatif untuk mengurangi waktu tunggu pengguna.</p>
+        <div class="glass card feature-card" style="padding: 25px; border-radius: var(--r-sm);">
+          <div class="card-icon" style="font-size: 1.8rem; margin-bottom: 12px;">📍</div>
+          <h3 style="font-family: 'Syne', sans-serif; margin: 0 0 10px 0; font-size: 1.2rem;">Alternative Pickup</h3>
+          <p style="margin:0; font-size:0.85rem; color:var(--muted); line-height:1.5;">Sistem menyarankan titik jemput alternatif untuk mengurangi waktu tunggu pengguna.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── FOOTER ─── -->
   <footer class="footer">
     <div class="container">
       <p>© 2026 <strong>GOFAST</strong> — Design Documentation Project</p>
     </div>
   </footer>
 
-  <!-- ─── INTERACTIVE JAVASCRIPT ─── -->
+  <!-- SCRIPT UTAMA KITA AMANKAN DARI BENTROK APP.JS -->
+  <!-- <script src="js/app.js"></script> -->
+
   <script>
-    const dropdownBtn = document.getElementById('dropdownBtn');
-    const dropdownMenu = document.getElementById('dropdownMenu');
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. Logika Klik Menu Hamburger
+      const tombolToggle = document.querySelector('.menu-toggle');
+      const menuNav = document.querySelector('.nav-menu');
+      
+      if (tombolToggle && menuNav) {
+        tombolToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          tombolToggle.classList.toggle('open');
+          menuNav.classList.toggle('open');
+        });
+      }
 
-    dropdownBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      dropdownMenu.classList.toggle('show');
-    });
+      // 2. Logika Dropdown Opsi Dokumentasi Figma
+      const dropdownBtn = document.getElementById('dropdownBtn');
+      const dropdownMenu = document.getElementById('dropdownMenu');
 
-    document.addEventListener('click', function() {
-      if (dropdownMenu.classList.contains('show')) {
-        dropdownMenu.classList.remove('show');
+      if (dropdownBtn && dropdownMenu) {
+        dropdownBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('show');
+        });
+
+        // Klik di luar dropdown untuk menutup menu opsi figma
+        document.addEventListener('click', function() {
+          if (dropdownMenu.classList.contains('show')) {
+            dropdownMenu.classList.remove('show');
+          }
+        });
       }
     });
-
-    // Responsive Navbar Logic
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    menuToggle.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-      menuToggle.setAttribute('aria-expanded', !expanded);
-      navMenu.classList.toggle('active');
-    });
   </script>
-  <script src="js/app.js"></script>
 </body>
 </html>

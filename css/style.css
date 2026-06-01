@@ -1,7 +1,9 @@
 /* ══════════════════════════════════════════════════════════════════════
-   STYLE.CSS — Upgraded & Fixed Version
-   - Mengatasi isu Dropdown terpotong (Opsi 3).
-   - Logika, layout token, dan palet warna GOFAST tetap terjaga asli.
+   STYLE.CSS — Upgraded & Fixed Version (Fully Responsive Mobile)
+   - Mengatasi isu Dropdown terpotong.
+   - Perbaikan tombol garis tiga (hamburger menu) & navigasi di HP.
+   - Layout grid, kontainer, dan elemen dipaksa simetris di layar mobile.
+   - Tetap Menjaga Semua Animasi, Efek Glow, Orb, dan Noise Bawaan.
    ══════════════════════════════════════════════════════════════════════ */
 
 /* ─── Google Fonts ─── */
@@ -26,8 +28,8 @@
   --space-sm:  16px;
   --space-md:  28px;
   --space-lg:  48px;
-  --space-xl:  80px;
-  --space-2xl: 120px;
+  --space-xl:  56px; 
+  --space-2xl: 80px; 
 
   /* Radius */
   --r-sm:  12px;
@@ -48,6 +50,11 @@
   --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.35);
   --shadow-glow: 0 0 40px rgba(108, 99, 255, 0.35);
   --shadow-glow-lg: 0 0 60px rgba(108, 99, 255, 0.5);
+
+  /* Utility Fallbacks */
+  --primary-glow: linear-gradient(135deg, #6f42fb 0%, #6c63ff 100%);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 /* ─── Reset & Base ─── */
@@ -78,6 +85,7 @@ body {
 img, video, svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -143,7 +151,8 @@ body::after {
 
 /* ─── Container ─── */
 .container {
-  width: min(1200px, 92%);
+  width: min(1200px, 100%);
+  padding-inline: 20px;
   margin-inline: auto;
   position: relative;
   z-index: 1;
@@ -173,7 +182,7 @@ body::after {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 2000; 
   background: rgba(5, 8, 22, 0.75);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
@@ -192,7 +201,7 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-sm);
+  width: 100%;
 }
 
 .logo {
@@ -246,7 +255,7 @@ body::after {
   border-color: rgba(108, 99, 255, 0.38);
 }
 
-/* ─── Hamburger ─── */
+/* ─── Hamburger (Menu Toggle) ─── */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -256,7 +265,7 @@ body::after {
   padding: 8px;
   border: none;
   background: none;
-  z-index: 1001;
+  z-index: 2005; 
   border-radius: var(--r-sm);
   transition: background var(--t-fast);
   -webkit-tap-highlight-color: transparent;
@@ -283,13 +292,13 @@ body::after {
 .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ──────────────────────────────────────────
-   HERO
+   HERO SECTION
 ────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 72px;
+  padding-top: 90px;
   position: relative;
   overflow: visible; 
 }
@@ -297,20 +306,19 @@ body::after {
 .hero-layout {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-xl);
+  gap: 48px;
   align-items: center;
-  overflow: visible; 
+  width: 100%;
 }
 
 .hero-text {
   animation: fade-up 0.8s var(--ease-out) both;
-  overflow: visible; 
   position: relative;
 }
 
 .hero-card {
   animation: fade-up 0.9s 0.15s var(--ease-out) both;
-  align-self: start;
+  align-self: center;
 }
 
 /* ─── Hero Badge ─── */
@@ -318,15 +326,15 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px 6px 8px;
-  background: rgba(108, 99, 255, 0.1);
-  border: 1px solid rgba(108, 99, 255, 0.28);
+  padding: 6px 16px;
+  background: rgba(111, 66, 251, 0.12);
+  border: 1px solid rgba(111, 66, 251, 0.3);
   border-radius: var(--r-full);
-  font-size: 0.78rem;
-  color: var(--primary);
-  font-weight: 700;
+  font-size: 12px;
+  color: #9d80ff;
+  font-weight: 600;
   margin-bottom: var(--space-md);
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   width: fit-content;
 }
@@ -357,7 +365,7 @@ body::after {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: linear-gradient(90deg, #9d80ff, #fff, #6c63ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -378,9 +386,8 @@ body::after {
   margin-top: var(--space-lg);
   flex-wrap: wrap;
   align-items: center;
-  overflow: visible; 
   position: relative;
-  z-index: 100;
+  z-index: 10; 
 }
 
 .btn-primary,
@@ -491,7 +498,7 @@ body::after {
   color: var(--muted);
 }
 
-/* ─── Hero Orbs ─── */
+/* ─── Hero Background Orbs ─── */
 .hero-orb {
   position: absolute;
   border-radius: 50%;
@@ -528,26 +535,7 @@ body::after {
   50%       { transform: translate(-20px, 25px); }
 }
 
-/* ──────────────────────────────────────────
-   HERO CARD (skill card / progress card)
-────────────────────────────────────────── */
-.hero-card .card {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-card .card::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -40%;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, rgba(20, 184, 166, 0.12), transparent 70%);
-  pointer-events: none;
-}
-
-/* ─── Progress ─── */
+/* ─── Progress Item & Stats (Hero Card Inside) ─── */
 .progress-item {
   margin-bottom: 20px;
 }
@@ -589,7 +577,6 @@ body::after {
   to   { transform: scaleX(1); }
 }
 
-/* ─── Card Stat ─── */
 .card-stat {
   display: flex;
   justify-content: space-between;
@@ -623,17 +610,20 @@ body::after {
 }
 
 /* ──────────────────────────────────────────
-   CARDS
+   CARDS GENERAL CONFIG
 ────────────────────────────────────────── */
 .card {
   padding: 36px;
   border-radius: var(--r-lg);
+  word-wrap: break-word;     /* Mencegah teks panjang merusak kotak */
+  word-break: break-word;
 }
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+  align-items: start;
 }
 
 .card-icon {
@@ -664,7 +654,6 @@ body::after {
   font-size: 0.93rem;
 }
 
-/* ─── Feature Cards ─── */
 .feature-card {
   transition: transform var(--t-base) var(--ease-out),
               border-color var(--t-base),
@@ -678,7 +667,17 @@ body::after {
   box-shadow: 0 24px 64px rgba(108, 99, 255, 0.13);
 }
 
-/* ─── Persona Cards ─── */
+.interactive-box {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer;
+}
+
+.interactive-box:hover {
+  transform: translateY(-8px) !important;
+  border-color: #6f42fb !important;
+  box-shadow: 0 15px 30px rgba(111, 66, 251, 0.25) !important;
+}
+
 .persona-card .avatar {
   width: 54px;
   height: 54px;
@@ -704,7 +703,6 @@ body::after {
   letter-spacing: 0.02em;
 }
 
-/* ─── Step Cards ─── */
 .step-card {
   position: relative;
 }
@@ -760,7 +758,7 @@ body::after {
 }
 
 /* ──────────────────────────────────────────
-   PAGE HERO (inner pages)
+   PAGE HERO (Inner Pages)
 ────────────────────────────────────────── */
 .page-hero {
   padding: 160px 0 80px;
@@ -785,7 +783,7 @@ body::after {
   line-height: 1.9;
 }
 
-/* ─── ANIMATIONS ─── */
+/* ─── ANIMATIONS & MARQUEE ─── */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -793,8 +791,8 @@ body::after {
 
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.active {
@@ -802,8 +800,24 @@ body::after {
   transform: translateY(0);
 }
 
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+div[style*="width: max-content"] {
+  display: flex !important;
+  gap: 20px;
+  padding: 10px 20px;
+  animation: scrollMarquee 40s linear infinite !important;
+}
+
+div[style*="width: max-content"]:hover {
+  animation-play-state: paused !important;
+}
+
 /* ──────────────────────────────────────────
-   DROPDOWN (Fixed Version)
+   DROPDOWN
 ────────────────────────────────────────── */
 .dropdown {
   position: relative;
@@ -881,7 +895,7 @@ body::after {
 }
 
 /* ──────────────────────────────────────────
-   PREMIUM CTA (Hover Sync Effect)
+   PREMIUM CTA 
 ────────────────────────────────────────── */
 .premium-cta-wrapper-link:hover .interactive-box {
   transform: translateY(-6px);
@@ -950,9 +964,7 @@ body::after {
   50%       { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 8px #fff); }
 }
 
-/* ──────────────────────────────────────────
-   FOOTER
-────────────────────────────────────────── */
+/* ─── FOOTER ─── */
 .footer {
   border-top: 1px solid var(--border);
   padding: 42px 0;
@@ -978,117 +990,145 @@ body::after {
 ────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .hero-layout {
-    gap: 48px;
+    gap: 40px;
+    grid-template-columns: 1fr; 
+  }
+
+  .hero-card {
+    justify-self: center;
+    width: 100%;
+    max-width: 540px;
   }
 
   .section {
-    padding: 90px 0;
+    padding: 80px 0;
   }
 }
 
 /* ──────────────────────────────────────────
-   RESPONSIVE — MOBILE (≤ 768px)
+   RESPONSIVE — MOBILE (Layar HP ≤ 768px)
 ────────────────────────────────────────── */
 @media (max-width: 768px) {
   :root {
-    --space-2xl: 80px;
-    --space-xl:  56px;
+    --space-2xl: 60px;
+    --space-xl:  40px;
   }
 
-  /* Hamburger visible */
-  .menu-toggle { display: flex; }
+  /* Aktifkan tombol hamburger di HP */
+  .menu-toggle { 
+    display: flex; 
+  }
 
-  /* Nav drawer */
+ 
+  /* Sidebar Drawer Style */
   .nav-menu {
     position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(5, 8, 22, 0.98);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
+    top: 0;
+    left: -300px; /* Sembunyi di kiri */
+    width: 280px;
+    height: 100vh;
+    background: #050816;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    padding: 24px 20px 40px;
-    gap: 4px;
-    border-bottom: 1px solid var(--border);
-    transform: translateY(-110%);
-    opacity: 0;
-    visibility: hidden;
-    transition: transform var(--t-slow) var(--ease-out),
-                opacity var(--t-base),
-                visibility 0s var(--t-slow);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    padding: 80px 20px;
+    gap: 20px;
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2000;
   }
 
   .nav-menu.open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-    transition: transform var(--t-slow) var(--ease-out),
-                opacity var(--t-base),
-                visibility 0s;
+    left: 0; /* Muncul dari kiri */
   }
 
   .nav-menu a {
-    padding: 14px 18px;
-    font-size: 1rem;
-    border-radius: var(--r-md);
-    width: 100%;
-    border: 1px solid transparent;
+    font-size: 1.2rem;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
+
+  /* Overlay biar pas dibuka, background jadi gelap */
+  .overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 1999;
+  }
+  .overlay.open { display: block; }
 
   .nav-menu a:hover,
   .nav-menu a.active {
     transform: none;
     border-color: rgba(108, 99, 255, 0.3);
+    background: rgba(108, 99, 255, 0.1);
   }
 
-  /* Hero */
+  /* Mengatasi elemen hero yang berantakan di HP */
+  .hero {
+    padding-top: 100px;
+    min-height: auto;
+  }
+
   .hero-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
-    overflow: visible;
+    gap: 36px;
+    text-align: center;
   }
 
   .hero h1 {
-    font-size: clamp(2.8rem, 11vw, 4rem);
+    font-size: clamp(2.4rem, 9vw, 3.8rem);
     letter-spacing: -1px;
   }
 
-  .hero-card {
-    align-self: auto;
+  .hero-desc {
+    margin-inline: auto;
+    max-width: 100%;
+    font-size: 0.98rem;
   }
 
+  .hero-badge {
+    margin-inline: auto;
+  }
+
+  /* Menjadikan tombol-tombol simetris penuh di HP */
   .hero-buttons {
     flex-direction: column;
     align-items: stretch;
-    overflow: visible;
+    width: 100%;
+    gap: 12px;
   }
 
   .btn-primary,
   .btn-secondary {
+    width: 100%;
     justify-content: center;
     padding: 15px 24px;
   }
 
   .hero-mini-info {
     flex-direction: column;
+    width: 100%;
   }
 
   .mini-info-card {
     width: 100%;
+    text-align: center;
   }
 
-  /* Grids */
+  .hero-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Grid galeri/kartu dipaksa turun menjadi 1 kolom simetris */
   .cards-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 16px;
   }
 
-  /* Cards */
   .card {
     padding: 24px;
     border-radius: var(--r-md);
@@ -1102,88 +1142,95 @@ body::after {
     font-size: 1.45rem;
   }
 
-  /* Section title */
   .section-title {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
 
   .section-title h2 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
     letter-spacing: -1px;
   }
 
-  /* Page hero */
   .page-hero {
-    padding: 130px 0 60px;
+    padding: 120px 0 50px;
   }
 
-  /* Dropdown (full width on mobile) */
+  /* Dropdown Full Width Mobile */
   .dropdown {
     position: static;
-    overflow: visible;
+    width: 100%;
   }
 
   .dropdown-content {
     left: 0;
     right: 0;
+    width: 100%;
     min-width: unset;
     border-radius: var(--r-md);
-    overflow: visible;
   }
 
-  /* ─── PERBAIKAN UTAMA UNTUK TOMBOL FIGMA DI HP ─── */
-  /* Memaksa inline flexbox beralih menjadi susunan kolom di HP */
-  .glass.card[style*="display: flex"] {
+  /* ─── PERBAIKAN EMAS ANTI-TEXT OVERFLOW & ANTI-JEBOL ─── */
+  /* Di sini kita paksa flexbox bawaan inline HTML berubah ke susunan kolom */
+  .glass.card[style*="display: flex"],
+  .glass.card[style*="display:flex"] {
+    display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important; 
+    text-align: center !important;
     gap: var(--space-sm) !important;
     padding: 24px !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  .glass.card[style*="display: flex"] div[style*="display: flex"] {
+  .glass.card[style*="display: flex"] div[style*="display: flex"],
+  .glass.card[style*="display:flex"] div[style*="display:flex"] {
+    display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     gap: 16px !important;
+    width: 100% !important;
   }
 
-  /* Menyembunyikan ikon panah desktop yang mengganggu estetika mobile */
-  .glass.card div[style*="padding-right: 10px"] {
+  /* Amankan list di dalam card filosofi agar rapi di tengah */
+  .glass.card ul {
+    text-align: left !important;
+    display: inline-block !important;
+    padding-left: 20px !important;
+    width: 100% !important;
+  }
+
+  .glass.card div[style*="padding-right: 10px"],
+  .glass.card div[style*="padding-right:10px"] {
     display: none !important;
   }
 }
 
 /* ──────────────────────────────────────────
-   RESPONSIVE — SMALL MOBILE (≤ 480px)
+   RESPONSIVE — SMALL MOBILE (Layar HP Kecil ≤ 480px)
 ────────────────────────────────────────── */
 @media (max-width: 480px) {
-  .container {
-    width: 90%; /* Disesuaikan agar padding sisi kanan-kiri pas di layar kecil */
-  }
-
   .hero h1 {
-    font-size: clamp(2.4rem, 12vw, 3.2rem);
+    font-size: clamp(2.0rem, 11vw, 2.8rem);
   }
 
   .hero-badge {
-    font-size: 0.7rem;
+    font-size: 11px;
+    padding: 5px 12px;
   }
 
   .card {
     padding: 20px;
   }
 
-  .section-title h2 {
-    font-size: clamp(1.9rem, 8vw, 2.8rem);
-  }
-
   .btn-cyber-premium-simulated {
-    padding: 15px 28px;
+    padding: 14px 24px;
     font-size: 0.95rem;
+    width: 100%;
   }
 }
 
-/* ──────────────────────────────────────────
-   REDUCED MOTION
-────────────────────────────────────────── */
+/* ─── REDUCED MOTION (Aksesibilitas) ─── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -1196,91 +1243,513 @@ body::after {
   }
 }
 
-/* ==========================================================================
-   GOFAST UTILITY & ANIMATION ADDONS (Untuk UI Final & Flow Showcase)
-   ========================================================================== */
+/* ──────────────────────────────────────────
+   PERBAIKAN STRUKTUR UTAMA (ANTI-ZOOM OUT)
+────────────────────────────────────────── */
 
-:root {
-  --primary-glow: linear-gradient(135deg, #6f42fb 0%, #6c63ff 100%);
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.1); /* Fallback token */
-  --muted: rgba(255, 255, 255, 0.6);  /* Fallback token */
-  --r-md: 20px;
-  --r-sm: 12px;
+/* Dekorasi Konten Latar Belakang di Hero Card */
+.hero-card-title {
+  margin-bottom: 20px; 
+  font-family: 'Syne', sans-serif;
+}
+.hero-card-content {
+  display: flex; 
+  flex-direction: column; 
+  gap: 18px;
+}
+.hero-card-content .bg-item {
+  background: rgba(255, 255, 255, 0.03); 
+  border-left: 3px solid #6f42fb; 
+  padding: 12px 16px; 
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.hero-card-content h4 {
+  margin: 0 0 6px 0; 
+  font-size: 14px; 
+  font-family: 'Syne', sans-serif; 
+  color: #fff;
+}
+.hero-card-content p {
+  margin: 0; 
+  font-size: 13px; 
+  line-height: 1.5; 
+  color: var(--muted);
 }
 
-/* --- Mengembalikan Grid Gallery yang Hilang --- */
-.cards-grid {
+/* Pengaturan Layout About Section Desktop */
+.about-card {
+  display: flex; 
+  flex-direction: row;
+  gap: 40px; 
+  align-items: center; 
+  padding: 40px; 
+  margin-bottom: 30px;
+  width: 100%;
+}
+.about-card-reverse {
+  flex-direction: row-reverse;
+  margin-bottom: 50px;
+}
+.about-image-wrapper {
+  flex: 1; 
+  min-width: 280px; 
+  text-align: center;
+}
+.about-text-wrapper {
+  flex: 1.5; 
+  min-width: 300px;
+}
+.logo-img {
+  max-width: 220px; 
+  width: 100%; 
+  height: auto; 
+  filter: drop-shadow(0px 8px 24px rgba(111, 66, 251, 0.3));
+}
+.screenshot-img {
+  max-width: 240px; 
+  width: 100%; 
+  height: auto; 
+  border-radius: var(--r-md); 
+  box-shadow: 0px 12px 32px rgba(111, 66, 251, 0.25); 
+  border: 1px solid var(--border);
+}
+.tag-label {
+  color: #6C63FF; 
+  font-weight: 600; 
+  text-transform: uppercase; 
+  font-size: 14px; 
+  letter-spacing: 1px; 
+  display: block; 
+  margin-bottom: 8px;
+}
+.about-text-wrapper h3 {
+  font-family: 'Syne', sans-serif; 
+  font-size: 24px; 
+  margin-bottom: 16px;
+}
+.desc-text {
+  line-height: 1.6; 
+  margin-bottom: 12px; 
+  font-size: 15px; 
+  color: var(--muted);
+}
+.styled-list {
+  padding-left: 20px; 
+  line-height: 1.7; 
+  font-size: 14px; 
+  color: var(--muted);
+}
+.styled-list li {
+  margin-bottom: 12px;
+}
+.styled-list strong {
+  color: #fff;
+}
+
+/* RESPONSIVE FIX DI HP (LEBAR ≤ 768px) */
+@media (max-width: 768px) {
+  .about-card, 
+  .about-card-reverse {
+    flex-direction: column !important;
+    padding: 24px !important;
+    gap: 24px !important;
+    text-align: center;
+  }
+  
+  .about-image-wrapper,
+  .about-text-wrapper {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+
+  .styled-list {
+    text-align: left !important;
+    padding-left: 16px !important;
+  }
+}
+
+/* ──────────────────────────────────────────
+   PERBAIKAN STRUKTUR PAGE USER PERSONA
+────────────────────────────────────────── */
+
+.persona-main-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 25px;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+/* Layout Utama Kombinasi Grid & Flex */
+.persona-card-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
   align-items: start;
+  text-align: left;
 }
 
-/* --- Interactive Box Lift-Up Hover Effect --- */
-.interactive-box {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  cursor: pointer;
+/* Bagian Kiri (Foto Profil Persona) */
+.persona-left {
+  text-align: center;
+  width: 100%;
 }
-.interactive-box:hover {
-  transform: translateY(-8px) !important;
-  border-color: #6f42fb !important;
-  box-shadow: 0 15px 30px rgba(111, 66, 251, 0.25) !important;
+.persona-img-link {
+  display: inline-block;
+  text-decoration: none;
 }
-
-/* --- Menghidupkan Kembali Live UI Flow Showcase (Marquee) --- */
-@keyframes scrollMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.persona-avatar {
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 1/1;
+  border-radius: var(--r-md);
+  object-fit: cover;
+  border: 4px solid var(--primary);
+  box-shadow: var(--shadow-glow);
+  margin-bottom: 20px;
 }
-
-/* Selektor track pembungkus gambar berjalan */
-div[style*="width: max-content"] {
-  display: flex !important;
-  gap: 20px;
-  padding: 10px 20px;
-  animation: scrollMarquee 40s linear infinite !important;
-}
-
-div[style*="width: max-content"]:hover {
-  animation-play-state: paused !important; /* Berhenti sejenak saat di-hover kursor */
-}
-
-/* --- Efek Bersinar Premium & Pulse Buttons --- */
-.gradient-text {
-  background: linear-gradient(90deg, #9d80ff, #fff, #6c63ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-badge {
+.persona-tag-label {
   display: inline-block;
   padding: 6px 16px;
-  border-radius: 100px;
-  font-size: 12px;
+  border-radius: 50px;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 1px;
-  background: rgba(111, 66, 251, 0.12);
-  border: 1px solid rgba(111, 66, 251, 0.3);
-  color: #9d80ff;
+  margin-bottom: 12px;
+  color: white;
+}
+.bg-primary { background: var(--primary); }
+.persona-name {
+  font-size: 1.8rem;
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+  color: #fff;
 }
 
-/* --- Scroll Reveal Standard State --- */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between; /* Membagi ruang rata kiri-kanan */
-  align-items: center;
+/* Bagian Kanan (Detail Informasi) */
+.persona-right {
   width: 100%;
-  padding: 20px 0;
+}
+.info-block {
+  margin-bottom: 20px;
+}
+.title-text {
+  font-family: 'Syne', sans-serif;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.title-accent {
+  font-family: 'Syne', sans-serif;
+  margin-bottom: 6px;
+  color: var(--accent);
+}
+.title-danger {
+  font-family: 'Syne', sans-serif;
+  margin-bottom: 10px;
+  color: #ef4444;
+}
+.desc-text {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text);
+}
+.attributes-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Grid Spesifikasi Dalam */
+.persona-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.persona-list {
+  padding-left: 20px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.pain-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pain-tag {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--r-sm);
+  color: #f87171;
+}
+
+/* Box Peluang Solusi Desain */
+.opportunity-box {
+  margin-top: 24px;
+  padding: 16px;
+  background: rgba(108, 99, 255, 0.05);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.opp-title {
+  font-family: 'Syne', sans-serif;
+  margin-bottom: 6px;
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+.opp-desc {
+  margin: 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Pembersihan Section Link Figma CTA */
+.cta-section {
+  padding-top: 0;
+  margin-top: 40px;
+}
+.premium-cta-wrapper-link {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+.cta-flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  border-radius: var(--r-md);
+  gap: 20px;
+}
+.cta-left-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.svg-container {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 16px;
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.badge-small {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  margin-bottom: 6px;
+}
+.cta-title {
+  margin: 0 0 4px 0;
+  font-size: 1.25rem;
+  font-family: 'Syne', sans-serif;
+}
+.cta-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE LAYOUT UNTUK HP (MAX-WIDTH: 768px)
+────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .persona-card-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  
+  .persona-left {
+    text-align: center !important;
+  }
+  
+  .persona-details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .cta-flex-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .cta-left-content {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .arrow-vector {
+    display: none; /* Hilangkan panah di HP biar hemat space */
+  }
+}
+
+/* ──────────────────────────────────────────
+   PERBAIKAN RESPONSIVE PAGE SKETCHES & WIREFRAME
+────────────────────────────────────────── */
+
+.section-top-clean {
+  padding-top: 0 !important;
+}
+
+.section-intro {
+  margin-bottom: 40px;
+}
+
+.sketches-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.sketches-subtitle {
+  color: var(--muted);
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+/* Pemecahan Grid Sketsa (Default Desktop) */
+.sketches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Pemecahan Grid Wireframe (Default Desktop) */
+.wireframe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Card Wrapper Komponen */
+.sketch-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.sketch-card-top {
+  width: 100%;
+}
+
+/* Image Frame */
+.sketch-img-container {
+  position: relative;
+  width: 100%;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.sketch-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Bagian Tagging */
+.sketch-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.tag-purple {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #a78bfa;
+}
+
+.tag-muted {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+}
+
+.tag-teal {
+  background: rgba(20, 184, 166, 0.15);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  color: #14b8a6;
+}
+
+/* Typography Custom */
+.sketch-name {
+  margin: 5px 0 10px 0;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.sketch-name-sm {
+  margin: 5px 0 5px 0;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.sketch-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Wireframe Badges */
+.wf-badge-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.wf-origin-info {
+  font-size: 0.8rem;
+  color: #8b5cf6;
+  font-weight: 600;
+}
+
+.section-divider {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 60px 0;
+}
+
+.sketches-cta-section {
+  padding-top: 0;
+  margin-top: 40px;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE OVERRIDE UNTUK HP (MAX-WIDTH: 480px)
+────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .sketches-grid, .wireframe-grid {
+    grid-template-columns: 1fr !important; /* Paksa turun satu kolom di hp kecil */
+    gap: 20px;
+  }
+  
+  .sketches-title {
+    font-size: 1.6rem;
+  }
+  
+  .sketch-img {
+    height: 200px; /* Kurangi tinggi gambar biar ga menonjol berlebih */
+  }
 }

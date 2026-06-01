@@ -29,31 +29,33 @@ if (header) {
   }, { passive: true });
 }
 
-// ─── Hamburger menu toggle (Synced with HTML .active class) ───
+// ─── Hamburger menu toggle ───
 const menuToggle = document.querySelector('.menu-toggle');
-const navMenu    = document.querySelector('.nav-menu');
+const navMenu = document.querySelector('.nav-menu');
 
 if (menuToggle && navMenu) {
-  menuToggle.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('active');
-    menuToggle.classList.toggle('active', isOpen);
-    menuToggle.setAttribute('aria-expanded', isOpen);
+  // Buka-tutup menu saat tombol garis tiga diklik
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
-  // Close menu when a link is clicked (mobile navigation)
+  // Otomatis tutup menu jika salah satu link navigasi diklik
   navMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      menuToggle.classList.remove('active');
+      navMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
     });
   });
 
-  // Close menu on outside click safely
+  // [DISETALAHKAN & DIKONSOLIDASI] Tutup menu dengan aman jika klik di luar area header
   document.addEventListener('click', (e) => {
     if (header && !header.contains(e.target)) {
-      navMenu.classList.remove('active');
-      menuToggle.classList.remove('active');
+      navMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
     }
   });
@@ -89,13 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropdownMenu = document.getElementById('dropdownMenu');
 
   if (dropdownBtn && dropdownMenu) {
-    // 1. Ketika tombol utama dropdown diklik
+    // Ketika tombol utama dropdown diklik
     dropdownBtn.addEventListener('click', (event) => {
       event.stopPropagation(); 
       dropdownMenu.classList.toggle('show');
     });
 
-    // 2. Jika user mengklik area lain di luar kotak dropdown
+    // Jika user mengklik area lain di luar kotak dropdown
     document.addEventListener('click', (event) => {
       if (!dropdownMenu.contains(event.target) && event.target !== dropdownBtn) {
         dropdownMenu.classList.remove('show');
