@@ -7,112 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="../css/style.css">
-  
-  <style>
-    /* Sinkronisasi tata letak halaman dokumentasi internal */
-    .header {
-      position: relative;
-      z-index: 10;
-    }
-    .page-hero {
-      padding: 60px 0 40px 0 !important;
-      background: linear-gradient(180deg, rgba(18, 24, 43, 0.7) 0%, rgba(12, 16, 29, 0) 100%);
-    }
-
-    /* Layout Grids */
-    .font-grid, .rules-grid, .component-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-    .font-card, .rule-card, .spec-card {
-      padding: 35px !important;
-      border-radius: 24px;
-    }
-    .font-preview {
-      font-size: 4.5rem;
-      margin-bottom: 15px;
-      line-height: 1;
-      font-weight: 700;
-    }
-    .syne { font-family: 'Syne', sans-serif; }
-    .dm { font-family: 'DM Sans', sans-serif; }
-
-    /* Typography Scale List */
-    .type-scale {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .type-item {
-      padding: 30px !important;
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .type-meta {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      padding-bottom: 8px;
-    }
-    .type-meta small {
-      color: #14B8A6;
-      letter-spacing: 1.5px;
-      font-weight: 600;
-      font-size: 0.75rem;
-    }
-    .type-meta .token-tag {
-      background: rgba(108, 99, 255, 0.15);
-      color: #8B5CF6;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-family: monospace;
-    }
-
-    /* Color Palette Styles */
-    .palette-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-    .palette-card {
-      overflow: hidden;
-      border-radius: 20px;
-      background: rgba(18, 24, 43, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .palette-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 30px rgba(108, 99, 255, 0.2);
-    }
-    .palette-color { height: 130px; }
-    .palette-info { padding: 20px; }
-    .palette-info h3 { margin: 0 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.1rem; }
-    .palette-info p { margin: 0; color: #8F96B2; font-size: 0.9rem; }
-
-    /* Accessibility Checklist */
-    .guideline-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      margin-top: 20px;
-    }
-    @media(max-width: 768px) { .guideline-box { grid-template-columns: 1fr; } }
-    .guide-card { padding: 25px; border-radius: 16px; }
-    .guide-do { border-left: 4px solid #14B8A6; background: rgba(20, 184, 166, 0.03); }
-    .guide-dont { border-left: 4px solid #EC4899; background: rgba(236, 72, 153, 0.03); }
-
-    .rule-icon { font-size: 1.8rem; color: #6C63FF; margin-bottom: 15px; display: inline-block; }
-  </style>
 </head>
 <body>
 
@@ -134,164 +29,164 @@
     </div>
   </header>
 
-  <div class="page-hero">
+  <div class="page-hero" style="padding: 60px 0 40px 0; background: linear-gradient(180deg, rgba(18, 24, 43, 0.7) 0%, rgba(12, 16, 29, 0) 100%);">
     <div class="container">
-      <div class="hero-badge" style="display:inline-flex; margin-bottom:15px;">Design System v1.0</div>
+      <div class="hero-badge">Design System v1.0</div>
       <h1 style="font-size: 2.8rem; line-height: 1.2; margin-bottom: 15px;">Typography &<br><span class="gradient-text">Visual Style Tokens</span></h1>
-      <p style="max-width: 650px; color: #94a3b8; font-size: 1rem; line-height: 1.6;">Panduan komprehensif susunan huruf, skala ukuran, dan kontras warna aplikasi GOFAST untuk menjamin konsistensi antarmuka yang ramah pengguna bagi semua kalangan.</p>
+      <p style="max-width: 650px; color: var(--muted); font-size: 1rem; line-height: 1.6;">Panduan komprehensif susunan huruf, skala ukuran, dan kontras warna aplikasi GOFAST untuk menjamin konsistensi antarmuka yang ramah pengguna bagi semua kalangan.</p>
     </div>
   </div>
 
   <section class="section" style="padding-top: 20px;">
     <div class="container">
       
-      <div class="section-title" style="margin-bottom: 35px;">
+      <div style="margin-bottom: 35px;">
         <h2 style="font-family: 'Syne', sans-serif; font-size: 1.8rem; margin-bottom: 10px;">Kombinasi Typeface Utama</h2>
-        <p style="color: #94a3b8; max-width: 600px;">Penentuan dua rumpun huruf berdasarkan prinsip fungsionalitas produk digital berkecepatan tinggi.</p>
+        <p style="color: var(--muted); max-width: 600px;">Penentuan dua rumpun huruf berdasarkan prinsip fungsionalitas produk digital berkecepatan tinggi.</p>
       </div>
 
-      <div class="font-grid">
-        <div class="glass card font-card reveal">
-          <div class="font-preview syne" style="color: #6C63FF;">Aa</div>
+      <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;">
+        <div class="glass card reveal" style="padding: 35px; border-radius: var(--r-md);">
+          <div style="font-family: 'Syne', sans-serif; font-size: 4.5rem; margin-bottom: 15px; line-height: 1; font-weight: 700; color: #6C63FF;">Aa</div>
           <h3 style="font-family: 'Syne', sans-serif; font-size: 1.4rem; margin-bottom: 8px;">Syne — Display & Heading</h3>
-          <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6; margin: 0;">
+          <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0;">
             Berkarakter geometris dan modern. Diimplementasikan khusus untuk judul besar (*Hero Title*), judul menu, serta angka penunjuk navigasi agar memberikan kesan premium.
           </p>
         </div>
 
-        <div class="glass card font-card reveal" style="transition-delay:.1s">
-          <div class="font-preview dm" style="color: #14B8A6;">Aa</div>
+        <div class="glass card reveal" style="padding: 35px; border-radius: var(--r-md);">
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 4.5rem; margin-bottom: 15px; line-height: 1; font-weight: 700; color: #14B8A6;">Aa</div>
           <h3 style="font-family: 'Syne', sans-serif; font-size: 1.4rem; margin-bottom: 8px;">DM Sans — Body & UI Copy</h3>
-          <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6; margin: 0;">
+          <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0;">
             Memiliki keterbacaan yang sangat tinggi (*high readability*) pada layar gawai berukuran kecil. Digunakan untuk deskripsi rute, petunjuk langkah, teks tombol, dan data konfirmasi.
           </p>
         </div>
       </div>
 
-      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 50px 0;">
+      <hr style="border: 0; border-top: 1px solid var(--border); margin: 50px 0;">
 
-      <div class="section-title" style="margin-bottom: 35px;">
+      <div style="margin-bottom: 35px;">
         <h2 style="font-family: 'Syne', sans-serif; font-size: 1.8rem; margin-bottom: 10px;">Skala Ukuran & Aturan Token CSS</h2>
-        <p style="color: #94a3b8; max-width: 600px;">Daftar baku proporsi teks yang disesuaikan dengan viewport perangkat iPhone 13 / Android modern.</p>
+        <p style="color: var(--muted); max-width: 600px;">Daftar baku proporsi teks yang disesuaikan dengan viewport perangkat iPhone 13 / Android modern.</p>
       </div>
 
-      <div class="type-scale">
-        <div class="glass card type-item reveal">
-          <div class="type-meta">
-            <small>H1 — HERO DISPLAY TITLE</small>
-            <span class="token-tag">--fs-h1: 72px / line-height: 110%</span>
+      <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
+        <div class="glass card reveal" style="padding: 30px; border-radius: var(--r-sm); display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; gap: 15px; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; flex-wrap: wrap;">
+            <small style="color: #14B8A6; letter-spacing: 1.5px; font-weight: 600; font-size: 0.75rem;">H1 — HERO DISPLAY TITLE</small>
+            <span class="persona-tag" style="background: rgba(108, 99, 255, 0.15); color: #8B5CF6; font-size: 0.7rem; font-family: monospace;">--fs-h1: 72px / line-height: 110%</span>
           </div>
-          <h1 style="margin:0; font-size: clamp(2rem, 4vw, 4.5rem); line-height: 1.1;">Heading Utama Modern</h1>
+          <h1 style="margin:0; font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 4.5rem); line-height: 1.1;">Heading Utama Modern</h1>
         </div>
 
-        <div class="glass card type-item reveal" style="transition-delay:.1s">
-          <div class="type-meta">
-            <small>H2 — SECTION HEADING</small>
-            <span class="token-tag">--fs-h2: 56px / line-height: 120%</span>
+        <div class="glass card reveal" style="padding: 30px; border-radius: var(--r-sm); display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; gap: 15px; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; flex-wrap: wrap;">
+            <small style="color: #14B8A6; letter-spacing: 1.5px; font-weight: 600; font-size: 0.75rem;">H2 — SECTION HEADING</small>
+            <span class="persona-tag" style="background: rgba(108, 99, 255, 0.15); color: #8B5CF6; font-size: 0.7rem; font-family: monospace;">--fs-h2: 56px / line-height: 120%</span>
           </div>
-          <h2 style="margin:0; font-size: clamp(1.6rem, 3vw, 3.5rem); line-height: 1.2;">Sub Heading Premium</h2>
+          <h2 style="margin:0; font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3vw, 3.5rem); line-height: 1.2;">Sub Heading Premium</h2>
         </div>
 
-        <div class="glass card type-item reveal" style="transition-delay:.2s">
-          <div class="type-meta">
-            <small>H3 — CARD TITLE / SUB-MENU</small>
-            <span class="token-tag">--fs-h3: 40px / line-height: 130%</span>
+        <div class="glass card reveal" style="padding: 30px; border-radius: var(--r-sm); display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; gap: 15px; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; flex-wrap: wrap;">
+            <small style="color: #14B8A6; letter-spacing: 1.5px; font-weight: 600; font-size: 0.75rem;">H3 — CARD TITLE / SUB-MENU</small>
+            <span class="persona-tag" style="background: rgba(108, 99, 255, 0.15); color: #8B5CF6; font-size: 0.7rem; font-family: monospace;">--fs-h3: 40px / line-height: 130%</span>
           </div>
-          <h3 style="margin:0; font-size: clamp(1.3rem, 2vw, 2.5rem); line-height: 1.2;">Tipografi Elegan Digital</h3>
+          <h3 style="margin:0; font-family: 'Syne', sans-serif; font-size: clamp(1.3rem, 2vw, 2.5rem); line-height: 1.2;">Tipografi Elegan Digital</h3>
         </div>
 
-        <div class="glass card type-item reveal" style="transition-delay:.3s">
-          <div class="type-meta">
-            <small>BODY TEXT — PARAGRAPH & PARAGRAPH DATA</small>
-            <span class="token-tag">--fs-body: 18px / line-height: 160%</span>
+        <div class="glass card reveal" style="padding: 30px; border-radius: var(--r-sm); display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; gap: 15px; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; flex-wrap: wrap;">
+            <small style="color: #14B8A6; letter-spacing: 1.5px; font-weight: 600; font-size: 0.75rem;">BODY TEXT — PARAGRAPH & PARAGRAPH DATA</small>
+            <span class="persona-tag" style="background: rgba(108, 99, 255, 0.15); color: #8B5CF6; font-size: 0.7rem; font-family: monospace;">--fs-body: 18px / line-height: 160%</span>
           </div>
-          <p style="margin:0; font-size: 1.1rem; line-height: 1.6; color: #cbd5e1;">Sistem arsitektur penataan teks membantu desainer mewujudkan penyampaian pesan produk digital yang mengalir selaras, rapi, serta profesional untuk seluruh lapisan umur masyarakat pengguna aplikasi transportasi Indonesia.</p>
+          <p style="margin:0; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; line-height: 1.6; color: var(--text-body);">Sistem arsitektur penataan teks membantu desainer mewujudkan penyampaian pesan produk digital yang mengalir selaras, rapi, serta profesional untuk seluruh lapisan umur masyarakat pengguna aplikasi transportasi Indonesia.</p>
         </div>
       </div>
 
-      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 50px 0;">
+      <hr style="border: 0; border-top: 1px solid var(--border); margin: 50px 0;">
 
-      <div class="section-title" style="margin-bottom: 35px;">
+      <div style="margin-bottom: 35px;">
         <h2 style="font-family: 'Syne', sans-serif; font-size: 1.8rem; margin-bottom: 10px;">Sistem Keselarasan Warna</h2>
-        <p style="color: #94a3b8; max-width: 600px;">Palet utama pendukung keterbacaan teks kontras tinggi pada ekosistem malam (*dark-mode UI*).</p>
+        <p style="color: var(--muted); max-width: 600px;">Palet utama pendukung keterbacaan teks kontras tinggi pada ekosistem malam (*dark-mode UI*).</p>
       </div>
 
-      <div class="palette-grid">
-        <div class="palette-card reveal">
-          <div class="palette-color" style="background:#6C63FF;"></div>
-          <div class="palette-info">
-            <h3>Primary Violet</h3>
-            <p>#6C63FF</p>
+      <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px;">
+        <div class="glass card reveal" style="overflow: hidden; padding: 0; border-radius: var(--r-md); transition: transform var(--t-base) var(--ease-out);">
+          <div style="height: 130px; background:#6C63FF;"></div>
+          <div style="padding: 20px;">
+            <h3 style="margin: 0 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.1rem;">Primary Violet</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">#6C63FF</p>
           </div>
         </div>
 
-        <div class="palette-card reveal" style="transition-delay:.1s">
-          <div class="palette-color" style="background:#8B5CF6;"></div>
-          <div class="palette-info">
-            <h3>Soft Purple</h3>
-            <p>#8B5CF6</p>
+        <div class="glass card reveal" style="overflow: hidden; padding: 0; border-radius: var(--r-md); transition: transform var(--t-base) var(--ease-out);">
+          <div style="height: 130px; background:#8B5CF6;"></div>
+          <div style="padding: 20px;">
+            <h3 style="margin: 0 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.1rem;">Soft Purple</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">#8B5CF6</p>
           </div>
         </div>
 
-        <div class="palette-card reveal" style="transition-delay:.2s">
-          <div class="palette-color" style="background:#14B8A6;"></div>
-          <div class="palette-info">
-            <h3>Accent Cyan</h3>
-            <p>#14B8A6</p>
+        <div class="glass card reveal" style="overflow: hidden; padding: 0; border-radius: var(--r-md); transition: transform var(--t-base) var(--ease-out);">
+          <div style="height: 130px; background:#14B8A6;"></div>
+          <div style="padding: 20px;">
+            <h3 style="margin: 0 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.1rem;">Accent Cyan</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">#14B8A6</p>
           </div>
         </div>
 
-        <div class="palette-card reveal" style="transition-delay:.3s">
-          <div class="palette-color" style="background:#12182B;"></div>
-          <div class="palette-info">
-            <h3>Dark Card</h3>
-            <p>#12182B</p>
+        <div class="glass card reveal" style="overflow: hidden; padding: 0; border-radius: var(--r-md); transition: transform var(--t-base) var(--ease-out);">
+          <div style="height: 130px; background:#12182B;"></div>
+          <div style="padding: 20px;">
+            <h3 style="margin: 0 0 5px 0; font-family: 'Syne', sans-serif; font-size: 1.1rem;">Dark Card</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">#12182B</p>
           </div>
         </div>
       </div>
 
-      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 50px 0;">
+      <hr style="border: 0; border-top: 1px solid var(--border); margin: 50px 0;">
 
-      <div class="section-title" style="margin-bottom: 35px;">
+      <div style="margin-bottom: 35px;">
         <h2 style="font-family: 'Syne', sans-serif; font-size: 1.8rem; margin-bottom: 10px;">Implementasi Nyata Pada Komponen UI</h2>
-        <p style="color: #94a3b8; max-width: 600px;">Simulasi penggabungan aset token tipografi dan warna di dalam card informasi mini aplikasi.</p>
+        <p style="color: var(--muted); max-width: 600px;">Simulasi penggabungan aset token tipografi dan warna di dalam card informasi mini aplikasi.</p>
       </div>
 
-      <div class="component-grid">
-        <div class="glass card spec-card reveal" style="border: 1px solid rgba(255,255,255,0.08);">
+      <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <div class="glass card reveal" style="padding: 35px; border-radius: var(--r-md);">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
             <span style="font-size:0.75rem; color:#14B8A6; font-weight:700; text-transform:uppercase; letter-spacing:1px;">Rute Tercepat</span>
-            <span style="font-size:0.8rem; color:#8F96B2;">12 Menit</span>
+            <span style="font-size:0.8rem; color: var(--muted);">12 Menit</span>
           </div>
-          <h4 class="syne" style="font-size:1.5rem; margin:0 0 10px 0; font-weight:700;">Stasiun Madiun</h4>
-          <p class="dm" style="font-size:0.9rem; color:#94a3b8; margin:0; line-height:1.5;">Kombinasi heading Syne Bold + deskripsi sub-teks DM Sans Regular menghasilkan hirarki informasi rute yang instan dipahami.</p>
+          <h4 style="font-family: 'Syne', sans-serif; font-size:1.5rem; margin:0 0 10px 0; font-weight:700;">Stasiun Madiun</h4>
+          <p style="font-family: 'DM Sans', sans-serif; font-size:0.9rem; color: var(--muted); margin:0; line-height:1.5;">Kombinasi heading Syne Bold + deskripsi sub-teks DM Sans Regular menghasilkan hirarki informasi rute yang instan dipahami.</p>
         </div>
 
-        <div class="glass card spec-card reveal" style="border: 1px solid rgba(108, 99, 255, 0.2); transition-delay:.1s">
+        <div class="glass card reveal" style="padding: 35px; border-radius: var(--r-md); border: 1px solid rgba(108, 99, 255, 0.2);">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
             <span style="font-size:0.75rem; color:#8B5CF6; font-weight:700; text-transform:uppercase; letter-spacing:1px;">Sistem Notifikasi</span>
-            <span style="font-size:0.8rem; color:#8F96B2;">Baru</span>
+            <span style="font-size:0.8rem; color: var(--muted);">Baru</span>
           </div>
-          <h4 class="syne" style="font-size:1.5rem; margin:0 0 10px 0; font-weight:700;">Gojek-Grab Standard Icon</h4>
-          <p class="dm" style="font-size:0.9rem; color:#94a3b8; margin:0; line-height:1.5;">Ukuran tombol aksi menggunakan basis minimal 16px - 18px demi menjaga akses ketukan jempol semua kalangan usia pengguna indonesia.</p>
+          <h4 style="font-family: 'Syne', sans-serif; font-size:1.5rem; margin:0 0 10px 0; font-weight:700;">Gojek-Grab Standard Icon</h4>
+          <p style="font-family: 'DM Sans', sans-serif; font-size:0.9rem; color: var(--muted); margin:0; line-height:1.5;">Ukuran tombol aksi menggunakan basis minimal 16px - 18px demi menjaga akses ketukan jempol semua kalangan usia pengguna indonesia.</p>
         </div>
       </div>
 
-      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 50px 0;">
+      <hr style="border: 0; border-top: 1px solid var(--border); margin: 50px 0;">
 
-      <div class="section-title" style="margin-bottom: 25px;">
+      <div style="margin-bottom: 25px;">
         <h2 style="font-family: 'Syne', sans-serif; font-size: 1.8rem; margin-bottom: 10px;">Panduan Aksesibilitas Kontras</h2>
-        <p style="color: #94a3b8; max-width: 600px;">Aturan baku kombinasi warna teks demi menjaga kenyamanan visual.</p>
+        <p style="color: var(--muted); max-width: 600px;">Aturan baku kombinasi warna teks demi menjaga kenyamanan visual.</p>
       </div>
 
-      <div class="guideline-box">
-        <div class="card guide-card guide-do reveal">
-          <h4 class="syne" style="color:#14B8A6; margin:0 0 10px 0; font-size:1.1rem;">✔️ YANG HARUS DILAKUKAN (DO)</h4>
-          <p class="dm" style="font-size:0.9rem; color:#cbd5e1; line-height:1.6; margin:0;">Gunakan warna teks putih murni (`#FFFFFF`) atau abu terang (`#C7CCE5`) di atas latar belakang gelap gulita (`#060816`) untuk menjamin keterbacaan artikel.</p>
+      <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+        <div class="glass card reveal" style="padding: 25px; border-radius: var(--r-sm); border-left: 4px solid #14B8A6; background: rgba(20, 184, 166, 0.03);">
+          <h4 style="font-family: 'Syne', sans-serif; color:#14B8A6; margin:0 0 10px 0; font-size:1.1rem;">✔️ YANG HARUS DILAKUKAN (DO)</h4>
+          <p style="font-family: 'DM Sans', sans-serif; font-size:0.9rem; color: var(--text-body); line-height:1.6; margin:0;">Gunakan warna teks putih murni (`#FFFFFF`) atau abu terang (`#C7CCE5`) di atas latar belakang gelap gulita (`#060816`) untuk menjamin keterbacaan artikel.</p>
         </div>
-        <div class="card guide-card guide-dont reveal" style="transition-delay:.1s">
-          <h4 class="syne" style="color:#EC4899; margin:0 0 10px 0; font-size:1.1rem;">❌ YANG HARUS DIHINDARI (DON'T)</h4>
-          <p class="dm" style="font-size:0.9rem; color:#cbd5e1; line-height:1.6; margin:0;">Menumpuk teks berwarna ungu tua / violet gelap langsung di atas background hitam tanpa menggunakan pembatas lapisan kartu (*glassmorphism card*).</p>
+        <div class="glass card reveal" style="padding: 25px; border-radius: var(--r-sm); border-left: 4px solid #EC4899; background: rgba(236, 72, 153, 0.03);">
+          <h4 style="font-family: 'Syne', sans-serif; color:#EC4899; margin:0 0 10px 0; font-size:1.1rem;">❌ YANG HARUS DIHINDARI (DON'T)</h4>
+          <p style="font-family: 'DM Sans', sans-serif; font-size:0.9rem; color: var(--text-body); line-height:1.6; margin:0;">Menumpuk teks berwarna ungu tua / violet gelap langsung di atas background hitam tanpa menggunakan pembatas lapisan kartu (*glassmorphism card*).</p>
         </div>
       </div>
 

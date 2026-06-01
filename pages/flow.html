@@ -8,10 +8,84 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* Mengamankan ukuran container utama di HP */
+    .container {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Memastikan teks judul tidak kebesaran di layar kecil */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem !important;
+        line-height: 1.2;
+      }
+      h2 {
+        font-size: 1.5rem !important;
+      }
+      .page-hero {
+        padding: 60px 0 40px 0 !important;
+      }
+
+      /* Navbar & Menu Toggle Handphone */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+      /* Menyembunyikan menu desktop jika menu-toggle belum dioptimasi js */
+      .nav-menu {
+        display: none; /* Kamu bisa sesuaikan dengan logika toggle dari ../js/app.js */
+      }
+      .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(20, 20, 20, 0.95);
+        padding: 20px;
+        gap: 15px;
+        z-index: 999;
+      }
+
+      /* Memaksa grid kartu berubah menjadi 1 kolom di HP */
+      .cards-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      /* Menyesuaikan flexbox pada komponen tombol Figma */
+      .glass.card[style*="display: flex"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+        padding: 20px !important;
+      }
+      
+      .glass.card[style*="display: flex"] div[style*="display: flex"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
+      }
+
+      /* Menyembunyikan tanda panah atau menyesuaikannya di mobile */
+      .glass.card div[style*="padding-right: 10px"] {
+        display: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="header">
+<header class="header">
     <div class="container navbar">
       <a href="../index.html" class="logo">GOFAST</a>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -130,19 +204,20 @@
       </div>
     </div>
   </section>
-   </section>
-  <section class="section" style="padding-top: 0; margin-top: 40px;">
+   
+<section class="section" style="padding-top: 0; margin-top: 40px;">
     <div class="container">
       <div class="reveal">
         <a href="https://www.figma.com/board/tk6ZVI2sdPOY2IP51L4pbr/LOW-FIDELITY?node-id=0-1&p=f&t=hbrp6jwOKgQOQ7hM-0" 
            target="_blank" 
            rel="noopener noreferrer" 
+           class="premium-cta-wrapper-link"
            style="text-decoration: none; display: block; color: inherit;">
           
-          <div class="glass card" style="display: flex; align-items: center; justify-content: space-between; padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.15); transition: transform 0.3s ease, border-color 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#ff5722';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.15)';">
+          <div class="glass card interactive-box" style="display: flex; align-items: center; justify-content: space-between; padding: 30px; border-radius: var(--r-md); transition: transform var(--t-base) var(--ease-out), border-color var(--t-base);">
             
-            <div style="display: flex; align-items: center; gap: 20px;">
-              <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+              <div style="background: rgba(255,255,255,0.04); padding: 16px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center;" class="pulse-icon">
                 <svg width="36" height="54" viewBox="0 0 36 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 13.5C9 8.52944 13.0294 4.5 18 4.5C22.9706 4.5 27 8.52944 27 13.5C27 18.4706 22.9706 22.5 18 22.5C13.0294 22.5 9 18.4706 9 13.5Z" fill="#F24E1E"/>
                   <path d="M0 13.5C0 8.52944 4.02944 4.5 9 4.5C13.9706 4.5 18 8.52944 18 13.5C18 18.4706 13.9706 22.5 9 22.5C4.02944 22.5 0 18.4706 0 13.5Z" fill="#FF7262"/>
@@ -153,13 +228,13 @@
               </div>
               
               <div>
-                <span class="hero-badge" style="font-size: 0.75rem; padding: 2px 8px; margin-bottom: 6px; display: inline-block;">Figma File</span>
-                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem; font-family: 'Syne', sans-serif;">USER FLOW — GOFAST </h3>
-                <p style="margin: 0; color: #aaa; font-size: 0.9rem;">Klik untuk membuka berkas User Flow secara lengkap di Figma.</p>
+                <span class="hero-badge" style="font-size: 0.75rem; padding: 4px 12px; margin-bottom: 6px;">Figma File</span>
+                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem; font-family: 'Syne', sans-serif;">USER PERSONA — GOFAST</h3>
+                <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Klik untuk membuka berkas asli User Persona 1, 2, dan 3 di Figma.</p>
               </div>
             </div>
 
-            <div style="font-size: 1.5rem; color: #666; padding-right: 10px;">
+            <div style="font-size: 1.5rem; color: var(--muted);" class="arrow-vector">
               ➔
             </div>
 
@@ -168,7 +243,6 @@
       </div>
     </div>
   </section>
-
 
   <footer class="footer">
     <div class="container">

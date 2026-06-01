@@ -8,33 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <style>
-    /* Tambahan custom style minor untuk mendukung visualisasi Affinity Diagram & Ideation */
-    .affinity-section { margin-top: 60px; }
-    .affinity-title { margin-bottom: 40px; text-align: center; }
-    .pillar-box { margin-bottom: 30px; padding: 25px; border-radius: 16px; }
-    .insight-badge { background: rgba(255, 235, 59, 0.2); border: 1px solid #fbc02d; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 15px; font-weight: 600; }
-    .ideation-badge { background: rgba(162, 89, 255, 0.2); border: 1px solid #a259ff; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 15px; font-weight: 600; }
-    .priority-badge { background: rgba(26, 188, 156, 0.2); border: 1px solid #1abc9c; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 15px; font-weight: 600; }
-    .obs-list { list-style: none; padding: 0; margin: 15px 0 0 0; }
-    .obs-list li { position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 0.95rem; color: #ccc; }
-    .obs-list li::before { content: "•"; color: #ff5722; font-weight: bold; font-size: 1.2rem; position: absolute; left: 5px; top: -2px; }
-    .tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-weight: 500; display: inline-block; }
-    .tag-aulia { background: rgba(244, 143, 177, 0.2); color: #f48fb1; border: 1px solid #f48fb1; }
-    .tag-chinta { background: rgba(144, 202, 249, 0.2); color: #90caf9; border: 1px solid #90caf9; }
-    .tag-handoko { background: rgba(165, 214, 167, 0.2); color: #a5d6a7; border: 1px solid #a5d6a7; }
-    .tag-ficko { background: rgba(214, 165, 212, 0.2); color: #e1bee7; border: 1px solid #ba68c8; }
-    .tag-nayla { background: rgba(178, 235, 242, 0.2); color: #80deea; border: 1px solid #00bcd4; }
-    
-    /* Layout Tambahan untuk Matriks Prioritas */
-    .quadrant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-    @media (max-width: 768px) { .quadrant-grid { grid-template-columns: 1fr; } }
-    .quadrant-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 20px; border-radius: 12px; }
-    .quadrant-card h4 { margin-top: 0; color: #ff5722; font-family: 'Syne', sans-serif; }
-  </style>
 </head>
 <body>
 
+  <!-- ─── HEADER ─── -->
   <header class="header">
     <div class="container navbar">
       <a href="../index.html" class="logo">GOFAST</a>
@@ -48,19 +25,21 @@
         <a href="sketches.html">Sketches</a>
         <a href="flow.html">User Flow</a>
         <a href="tipografi.html">Tipografi</a>
-         <a href="uifinal.html">UI Final</a>
+        <a href="uifinal.html">UI Final</a>
       </nav>
     </div>
   </header>
 
+  <!-- ─── HERO PAGE ─── -->
   <div class="page-hero">
     <div class="container">
-      <div class="hero-badge" style="display:inline-flex;margin-bottom:20px;">Problem Statement</div>
+      <div class="hero-badge">Problem Statement</div>
       <h1>Why <span class="gradient-text">GOFAST</span><br>Exists</h1>
       <p>GOFAST hadir berdasarkan hasil riset *Affinity Diagram* untuk menyelesaikan hambatan nyata mobilitas, transparansi harga, dan kompleksitas UI/UX transportasi digital.</p>
     </div>
   </div>
 
+  <!-- ─── CORE PROBLEMS GRID ─── -->
   <section class="section" style="padding-top:0">
     <div class="container">
       <div class="cards-grid">
@@ -71,31 +50,31 @@
           <p>User mengalami kesulitan menggunakan aplikasi yang rumit dan cenderung enggan mempelajari sistem interface yang dianggap kompleks.</p>
         </div>
 
-        <div class="glass card feature-card reveal" style="transition-delay:.1s">
+        <div class="glass card feature-card reveal">
           <div class="card-icon">⏳</div>
           <h3>Driver Availability</h3>
           <p>Kesulitan mendapatkan driver pada jam sibuk serta pembatalan sepihak tanpa alasan jelas memicu waktu tunggu yang lama.</p>
         </div>
 
-        <div class="glass card feature-card reveal" style="transition-delay:.2s">
+        <div class="glass card feature-card reveal">
           <div class="card-icon">🗺️</div>
           <h3>GPS Tracking Issues</h3>
           <p>Sistem navigasi dan pelacakan GPS yang kurang akurat menurunkan tingkat kepercayaan user terhadap efisiensi estimasi waktu.</p>
         </div>
 
-        <div class="glass card feature-card reveal" style="transition-delay:.3s">
+        <div class="glass card feature-card reveal">
           <div class="card-icon">💸</div>
           <h3>Price Sensitivity</h3>
           <p>Lonjakan tarif yang tiba-tiba melambung tinggi di jam sibuk atau saat hujan menjadi kendala sensitif bagi stabilitas finansial user.</p>
         </div>
 
-        <div class="glass card feature-card reveal" style="transition-delay:.4s">
+        <div class="glass card feature-card reveal">
           <div class="card-icon">🛑</div>
           <h3>Mobility Dependency</h3>
           <p>Tingginya ketergantungan user pada transportasi online untuk mobilitas mendesak (sekolah/kampus) menuntut ketepatan waktu mutlak.</p>
         </div>
 
-        <div class="glass card feature-card reveal" style="transition-delay:.5s">
+        <div class="glass card feature-card reveal">
           <div class="card-icon">🔒</div>
           <h3>Safety & Retention</h3>
           <p>Kebutuhan jaminan keamanan ekstra selama perjalanan dan minimnya apresiasi (voucher/promo) bagi pelanggan setia.</p>
@@ -105,189 +84,197 @@
     </div>
   </section>
 
-  <section class="section affinity-section" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+  <!-- ─── AFFINITY DIAGRAM MAPPING ─── -->
+  <section class="section" style="background: rgba(255,255,255,0.02); border-top: 1px solid var(--border);">
     <div class="container">
       
-      <div class="affinity-title">
-        <div class="hero-badge" style="display:inline-flex;margin-bottom:15px;">Research Data</div>
+      <div style="margin-bottom: 40px; text-align: center;">
+        <div class="hero-badge" style="margin-bottom:15px;">Research Data</div>
         <h2>Affinity Diagram Mapping</h2>
-        <p style="color: #aaa; max-width: 600px; margin: 0 auto;">Berikut adalah rincian data observasi lapangan dari tim peneliti yang melandasi perancangan produk GOFAST.</p>
+        <p style="color: var(--muted); max-width: 600px; margin: 0 auto;">Berikut adalah rincian data observasi lapangan dari tim peneliti yang melandasi perancangan produk GOFAST.</p>
       </div>
 
-      <div class="glass pillar-box reveal">
-        <span class="insight-badge">Insight: Ketergantungan Kritis & Mobilitas Tinggi</span>
-        <h3>1. Mobilitas & Ketepatan Waktu (Main Problem)</h3>
-        <p style="color:#eee; font-style: italic; font-size:0.95rem;">"User bergantung penuh pada ojek online sebagai solusi mobilitas cepat di kala macet, jam masuk sekolah, atau saat tidak membawa kendaraan."</p>
-        <ul class="obs-list">
-          <li>User menggunakan ojek online untuk pergi ke kampus/sekolah <span class="tag tag-aulia">Aulia Raya</span></li>
-          <li>User menggunakan ojek online saat ada kegiatan mendesak <span class="tag tag-aulia">Aulia Raya</span></li>
-          <li>User menggunakan saat tidak membawa kendaraan pribadi <span class="tag tag-aulia">Aulia Raya</span></li>
-          <li>User menyukai layanan yang tepat waktu <span class="tag tag-aulia">Aulia Raya</span></li>
-          <li>User menggunakan layanan karena alasan praktis <span class="tag tag-chinta">Chinta Az-zahra</span></li>
-          <li>Mendukung mobilitas tinggi, butuh proses lancar, cepat, tanpa antre lama <span class="tag tag-handoko">Handoko Wahyu</span></li>
+      <!-- Pillar 1 -->
+      <div class="glass card reveal" style="margin-bottom: 30px; padding: 25px; border-radius: var(--r-md);">
+        <span class="persona-tag" style="background: rgba(255, 235, 59, 0.1); border: 1px solid #fbc02d; color: #fff; margin-bottom: 15px;">Insight: Ketergantungan Kritis & Mobilitas Tinggi</span>
+        <h3 style="margin-top: 5px;">1. Mobilitas & Ketepatan Waktu (Main Problem)</h3>
+        <p style="color: var(--muted); font-style: italic; font-size:0.95rem; margin-bottom: 15px;">"User bergantung penuh pada ojek online sebagai solusi mobilitas cepat di kala macet, jam masuk sekolah, atau saat tidak membawa kendaraan."</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User menggunakan ojek online untuk pergi ke kampus/sekolah <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia Raya</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User menggunakan ojek online saat ada kegiatan mendesak <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia Raya</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User menggunakan saat tidak membawa kendaraan pribadi <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia Raya</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User menyukai layanan yang tepat waktu <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia Raya</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User menggunakan layanan karena alasan praktis <span class="persona-tag" style="background: rgba(144, 202, 249, 0.15); color: #90caf9; border: 1px solid #90caf9; font-size: 0.75rem; padding: 2px 8px;">Chinta Az-zahra</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• Mendukung mobilitas tinggi, butuh proses lancar, cepat, tanpa antre lama <span class="persona-tag" style="background: rgba(165, 214, 167, 0.15); color: #a5d6a7; border: 1px solid #a5d6a7; font-size: 0.75rem; padding: 2px 8px;">Handoko Wahyu</span></li>
         </ul>
       </div>
 
-      <div class="glass pillar-box reveal">
-        <span class="insight-badge">Insight: Kendala Operasional Lapangan</span>
-        <h3>2. Ketersediaan Driver & Waktu Tunggu</h3>
-        <p style="color:#eee; font-style: italic; font-size:0.95rem;">"User sering terhambat oleh pembatalan sepihak dan lamanya penjemputan saat masa sibuk atau cuaca buruk."</p>
-        <ul class="obs-list">
-          <li>User kesulitan mendapatkan driver pada jam sibuk <span class="tag tag-aulia">Aulia Raya</span></li>
-          <li>User mengalami pembatalan pesanan tanpa alasan yang jelas <span class="tag tag-aulia">Aulia Raya</span></li>
-          <li>Harus menunggu driver lebih lama saat turun hujan atau jam pulang sekolah <span class="tag tag-chinta">Chinta Az-zahra</span></li>
+      <!-- Pillar 2 -->
+      <div class="glass card reveal" style="margin-bottom: 30px; padding: 25px; border-radius: var(--r-md);">
+        <span class="persona-tag" style="background: rgba(255, 235, 59, 0.1); border: 1px solid #fbc02d; color: #fff; margin-bottom: 15px;">Insight: Kendala Operasional Lapangan</span>
+        <h3 style="margin-top: 5px;">2. Ketersediaan Driver & Waktu Tunggu</h3>
+        <p style="color: var(--muted); font-style: italic; font-size:0.95rem; margin-bottom: 15px;">"User sering terhambat oleh pembatalan sepihak dan lamanya penjemputan saat masa sibuk atau cuaca buruk."</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User kesulitan mendapatkan driver pada jam sibuk <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia Raya</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User mengalami pembatalan pesanan tanpa alasan yang jelas <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia Raya</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• Harus menunggu driver lebih lama saat turun hujan atau jam pulang sekolah <span class="persona-tag" style="background: rgba(144, 202, 249, 0.15); color: #90caf9; border: 1px solid #90caf9; font-size: 0.75rem; padding: 2px 8px;">Chinta Az-zahra</span></li>
         </ul>
       </div>
 
-      <div class="glass pillar-box reveal">
-        <span class="insight-badge">Insight: Kebutuhan Sistem Presisi</span>
-        <h3>3. Akurasi Sistem Navigasi & GPS</h3>
-        <p style="color:#eee; font-style: italic; font-size:0.95rem;">"Ketidakakuratan peta digital memperlambat penjemputan dan merusak estimasi waktu sampai."</p>
-        <ul class="obs-list">
-          <li>User menginginkan peningkatan akurasi waktu perjalanan <span class="tag tag-aulia">Aulia Raya</span></li>
-          <li>User merasa koordinat sistem GPS kurang akurat <span class="tag tag-aulia">Aulia Raya</span></li>
+      <!-- Pillar 3 -->
+      <div class="glass card reveal" style="margin-bottom: 30px; padding: 25px; border-radius: var(--r-md);">
+        <span class="persona-tag" style="background: rgba(255, 235, 59, 0.1); border: 1px solid #fbc02d; color: #fff; margin-bottom: 15px;">Insight: Kebutuhan Sistem Presisi</span>
+        <h3 style="margin-top: 5px;">3. Akurasi Sistem Navigasi & GPS</h3>
+        <p style="color: var(--muted); font-style: italic; font-size:0.95rem; margin-bottom: 15px;">"Ketidakakuratan peta digital memperlambat penjemputan dan merusak estimasi waktu sampai."</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User menginginkan peningkatan akurasi waktu perjalanan <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia Raya</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User merasa koordinat sistem GPS kurang akurat <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia Raya</span></li>
         </ul>
       </div>
 
-      <div class="glass pillar-box reveal">
-        <span class="insight-badge">Insight: Lonjakan Harga Tidak Terprediksi</span>
-        <h3>4. Sensitivitas Tarif & Biaya Perjalanan</h3>
-        <p style="color:#eee; font-style: italic; font-size:0.95rem;">"Biaya perjalanan yang melambung tinggi secara mendadak saat jam sibuk mengurangi efisiensi pengeluaran pengguna."</p>
-        <ul class="obs-list">
-          <li>User menyukai tarif harga yang flat dan sesuai <span class="tag tag-aulia">Aulia Raya</span></li>
-          <li>Kendala harga ongkos yang tiba-tiba menjadi sangat mahal <span class="tag tag-chinta">Chinta Az-zahra</span></li>
-          <li>Berharap pihak penyedia tidak menaikkan harga berlebihan di jam sibuk <span class="tag tag-chinta">Chinta Az-zahra</span></li>
-          <li>Mempertimbangkan efisiensi biaya dalam memilih alternatif transportasi <span class="tag tag-handoko">Handoko Wahyu</span></li>
+      <!-- Pillar 4 -->
+      <div class="glass card reveal" style="margin-bottom: 30px; padding: 25px; border-radius: var(--r-md);">
+        <span class="persona-tag" style="background: rgba(255, 235, 59, 0.1); border: 1px solid #fbc02d; color: #fff; margin-bottom: 15px;">Insight: Lonjakan Harga Tidak Terprediksi</span>
+        <h3 style="margin-top: 5px;">4. Sensitivitas Tarif & Biaya Perjalanan</h3>
+        <p style="color: var(--muted); font-style: italic; font-size:0.95rem; margin-bottom: 15px;">"Biaya perjalanan yang melambung tinggi secara mendadak saat jam sibuk mengurangi efisiensi pengeluaran pengguna."</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• User menyukai tarif harga yang flat dan sesuai <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia Raya</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• Kendala harga ongkos yang tiba-tiba menjadi sangat mahal <span class="persona-tag" style="background: rgba(144, 202, 249, 0.15); color: #90caf9; border: 1px solid #90caf9; font-size: 0.75rem; padding: 2px 8px;">Chinta Az-zahra</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• Berharap pihak penyedia tidak menaikkan harga berlebihan di jam sibuk <span class="persona-tag" style="background: rgba(144, 202, 249, 0.15); color: #90caf9; border: 1px solid #90caf9; font-size: 0.75rem; padding: 2px 8px;">Chinta Az-zahra</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• Mempertimbangkan efisiensi biaya dalam memilih alternatif transportasi <span class="persona-tag" style="background: rgba(165, 214, 167, 0.15); color: #a5d6a7; border: 1px solid #a5d6a7; font-size: 0.75rem; padding: 2px 8px;">Handoko Wahyu</span></li>
         </ul>
       </div>
 
-      <div class="glass pillar-box reveal">
-        <span class="insight-badge">Insight: Kebutuhan Keamanan & Retensi Aplikasi</span>
-        <h3>5. Atribut Aplikasi (UI/UX, Promo, & Keamanan)</h3>
-        <p style="color:#eee; font-style: italic; font-size:0.95rem;">"User menginginkan interface yang memangkas kerumitan, sistem keamanan lacak perjalanan, serta apresiasi pengguna aktif."</p>
-        <ul class="obs-list">
-          <li>Menginginkan tampilan aplikasi sederhana & menghindari sistem rumit/kompleks <span class="tag tag-aulia">Aulia</span> <span class="tag tag-handoko">Handoko</span></li>
-          <li>Menginginkan adanya skema promo khusus / voucher bagi pelanggan aktif <span class="tag tag-aulia">Aulia</span> <span class="tag tag-chinta">Chinta</span></li>
-          <li>Merasa aman dengan adanya fitur pelacakan perjalanan (*share ride*) yang mementingkan keselamatan <span class="tag tag-chinta">Chinta</span> <span class="tag tag-handoko">Handoko</span></li>
+      <!-- Pillar 5 -->
+      <div class="glass card reveal" style="margin-bottom: 0; padding: 25px; border-radius: var(--r-md);">
+        <span class="persona-tag" style="background: rgba(255, 235, 59, 0.1); border: 1px solid #fbc02d; color: #fff; margin-bottom: 15px;">Insight: Kebutuhan Keamanan & Retensi Aplikasi</span>
+        <h3 style="margin-top: 5px;">5. Atribut Aplikasi (UI/UX, Promo, & Keamanan)</h3>
+        <p style="color: var(--muted); font-style: italic; font-size:0.95rem; margin-bottom: 15px;">"User menginginkan interface yang memangkas kerumitan, sistem keamanan lacak perjalanan, serta apresiasi pengguna aktif."</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• Menginginkan tampilan aplikasi sederhana & menghindari sistem rumit/kompleks <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia</span> <span class="persona-tag" style="background: rgba(165, 214, 167, 0.15); color: #a5d6a7; border: 1px solid #a5d6a7; font-size: 0.75rem; padding: 2px 8px;">Handoko</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• Menginginkan adanya skema promo khusus / voucher bagi pelanggan aktif <span class="persona-tag" style="background: rgba(244, 143, 177, 0.15); color: #f48fb1; border: 1px solid #f48fb1; font-size: 0.75rem; padding: 2px 8px;">Aulia</span> <span class="persona-tag" style="background: rgba(144, 202, 249, 0.15); color: #90caf9; border: 1px solid #90caf9; font-size: 0.75rem; padding: 2px 8px;">Chinta</span></li>
+          <li style="position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--text);">• Merasa aman dengan adanya fitur pelacakan perjalanan (*share ride*) yang mementingkan keselamatan <span class="persona-tag" style="background: rgba(144, 202, 249, 0.15); color: #90caf9; border: 1px solid #90caf9; font-size: 0.75rem; padding: 2px 8px;">Chinta</span> <span class="persona-tag" style="background: rgba(165, 214, 167, 0.15); color: #a5d6a7; border: 1px solid #a5d6a7; font-size: 0.75rem; padding: 2px 8px;">Handoko</span></li>
         </ul>
       </div>
 
     </div>
   </section>
 
-  <section class="section affinity-section" style="border-top: 1px solid rgba(255,255,255,0.05);">
+  <!-- ─── IDEATION PHASE (HOW MIGHT WE) ─── -->
+  <section class="section" style="border-top: 1px solid var(--border);">
     <div class="container">
       
-      <div class="affinity-title">
-        <div class="hero-badge" style="display:inline-flex;margin-bottom:15px;">Ideation Phase</div>
+      <div style="margin-bottom: 40px; text-align: center;">
+        <div class="hero-badge" style="margin-bottom:15px;">Ideation Phase</div>
         <h2>How Might We & Brainstorming</h2>
-        <p style="color: #aaa; max-width: 600px; margin: 0 auto;">Rumusan masalah utama produk dan kumpulan gagasan solutif yang dicetuskan oleh tim desainer.</p>
+        <p style="color: var(--muted); max-width: 600px; margin: 0 auto;">Rumusan masalah utama produk dan kumpulan gagasan solutif yang dicetuskan oleh tim desainer.</p>
       </div>
 
-      <div class="glass pillar-box reveal" style="border-left: 4px solid #a259ff; background: rgba(162, 89, 255, 0.03);">
-        <span class="ideation-badge">Vision Statement & Core HMW Question</span>
-        <h3 style="font-family: 'Syne', sans-serif; font-size: 1.4rem; line-height: 1.4; color: #fff;">
+      <div class="glass card reveal" style="border-left: 4px solid #a259ff; background: rgba(162, 89, 255, 0.03); padding: 25px; border-radius: var(--r-md); margin-bottom: 30px;">
+        <span class="persona-tag" style="background: rgba(162, 89, 255, 0.1); border: 1px solid #a259ff; color: #fff; margin-bottom: 10px;">Vision Statement & Core HMW Question</span>
+        <h3 style="font-family: 'Syne', sans-serif; font-size: 1.4rem; line-height: 1.4; color: #fff; margin: 5px 0 0 0;">
           "How might we memberikan kepastian waktu perjalanan yang akurat agar pengguna dapat merencanakan aktivitasnya tanpa risiko keterlambatan?"
         </h3>
       </div>
 
-      <div class="cards-grid" style="margin-top: 30px;">
+      <div class="cards-grid">
         
         <div class="glass card feature-card reveal">
-          <h4 style="margin: 5px 0; color: #fff;">Estimasi Rentang Waktu</h4>
-          <p style="font-size: 0.9rem; color: #bbb;">Tampilkan estimasi waktu dalam bentuk rentang (range) untuk meningkatkan akurasi persepsi psikologis pengguna di aplikasi.</p>
+          <h4 style="margin: 0 0 8px 0; color: #fff;">Estimasi Rentang Waktu</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">Tampilkan estimasi waktu dalam bentuk rentang (range) untuk meningkatkan akurasi persepsi psikologis pengguna di aplikasi.</p>
         </div>
 
         <div class="glass card feature-card reveal">
-          <h4 style="margin: 5px 0; color: #fff;">Pre-Order Traffic Info</h4>
-          <p style="font-size: 0.9rem; color: #bbb;">Berikan informasi kondisi lalu lintas dan potensi keterlambatan secara transparan sebelum pemesanan diverifikasi oleh user.</p>
+          <h4 style="margin: 0 0 8px 0; color: #fff;">Pre-Order Traffic Info</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">Berikan informasi kondisi lalu lintas dan potensi keterlambatan secara transparan sebelum pemesanan diverifikasi oleh user.</p>
         </div>
 
         <div class="glass card feature-card reveal">
-          <h4 style="margin: 5px 0; color: #fff;">Alternative Pick-up Point</h4>
-          <p style="font-size: 0.9rem; color: #bbb;">Sarankan titik penjemputan alternatif terdekat yang dinilai lebih cepat dan mudah dijangkau oleh driver untuk memangkas waktu tunggu.</p>
+          <h4 style="margin: 0 0 8px 0; color: #fff;">Alternative Pick-up Point</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">Sarankan titik penjemputan alternatif terdekat yang dinilai lebih cepat dan mudah dijangkau oleh driver untuk memangkas waktu tunggu.</p>
         </div>
 
         <div class="glass card feature-card reveal">
-          <h4 style="margin: 5px 0; color: #fff;">Dynamic Time Update</h4>
-          <p style="font-size: 0.9rem; color: #bbb;">Perbarui perhitungan estimasi waktu perjalanan secara dinamis sesuai pergerakan armada selama perjalanan berlangsung.</p>
+          <h4 style="margin: 0 0 8px 0; color: #fff;">Dynamic Time Update</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">Perbarui perhitungan estimasi waktu perjalanan secara dinamis sesuai pergerakan armada selama perjalanan berlangsung.</p>
         </div>
 
         <div class="glass card feature-card reveal">
-          <h4 style="margin: 5px 0; color: #fff;">Auto Suggestion System</h4>
-          <p style="font-size: 0.9rem; color: #bbb;">Menerapkan "Auto Suggestion Berdasarkan Kebiasaan" yang dihitung otomatis berdasarkan histori waktu dan pola aktivitas rutin user.</p>
+          <h4 style="margin: 0 0 8px 0; color: #fff;">Auto Suggestion System</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">Menerapkan "Auto Suggestion Berdasarkan Kebiasaan" yang dihitung otomatis berdasarkan histori waktu dan pola aktivitas rutin user.</p>
         </div>
 
         <div class="glass card feature-card reveal">
-          <h4 style="margin: 5px 0; color: #fff;">1-Tap Booking Feature</h4>
-          <p style="font-size: 0.9rem; color: #bbb;">Menambahkan fitur "1-Tap Booking" yang memungkinkan user memesan ojek motor hanya dengan sekali klik menggunakan data lokasi/tujuan tersimpan.</p>
+          <h4 style="margin: 0 0 8px 0; color: #fff;">1-Tap Booking Feature</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">Menambahkan fitur "1-Tap Booking" yang memungkinkan user memesan ojek motor hanya dengan sekali klik menggunakan data lokasi/tujuan tersimpan.</p>
         </div>
 
         <div class="glass card feature-card reveal">
-          <h4 style="margin: 5px 0; color: #fff;">High Performance Driver</h4>
-          <p style="font-size: 0.9rem; color: #bbb;">Prioritaskan alokasi dan penugasan driver yang memiliki riwayat performa rating tinggi pada area serta jam sibuk dengan demand tinggi.</p>
+          <h4 style="margin: 0 0 8px 0; color: #fff;">High Performance Driver</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">Prioritaskan alokasi dan penugasan driver yang memiliki riwayat performa rating tinggi pada area serta jam sibuk dengan demand tinggi.</p>
         </div>
 
         <div class="glass card feature-card reveal">
-          <h4 style="margin: 5px 0; color: #fff;">Driver Availability Indicator</h4>
-          <p style="font-size: 0.9rem; color: #bbb;">Menambahkan indikator visual yang menampilkan informasi jumlah armada driver aktif di sekitar lokasi pengguna secara real-time.</p>
+          <h4 style="margin: 0 0 8px 0; color: #fff;">Driver Availability Indicator</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">Menambahkan indikator visual yang menampilkan informasi jumlah armada driver aktif di sekitar lokasi pengguna secara real-time.</p>
         </div>
 
-        <div class="glass card feature-card reveal" style="grid-column: span 1;">
-          <h4 style="margin: 5px 0; color: #fff;">Congestion Area Dispatch</h4>
-          <p style="font-size: 0.9rem; color: #bbb;">Menerapkan sistem manajemen distribusi klaster driver khusus di area rawan macet yang memiliki potensi lonjakan permintaan tinggi.</p>
+        <div class="glass card feature-card reveal">
+          <h4 style="margin: 0 0 8px 0; color: #fff;">Congestion Area Dispatch</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">Menerapkan sistem manajemen distribusi klaster driver khusus di area rawan macet yang memiliki potensi lonjakan permintaan tinggi.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section class="section affinity-section" style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.05); padding-bottom: 60px;">
+  <!-- ─── PRIORITIZATION MATRIX ─── -->
+  <section class="section" style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border); padding-bottom: 60px;">
     <div class="container">
       
-      <div class="affinity-title">
-        <div class="hero-badge" style="display:inline-flex;margin-bottom:15px;">Prioritizing</div>
+      <div style="margin-bottom: 40px; text-align: center;">
+        <div class="hero-badge" style="margin-bottom:15px;">Prioritizing</div>
         <h2>Impact vs Effort Matrix</h2>
-        <p style="color: #aaa; max-width: 600px; margin: 0 auto;">Pemetaan eksekusi fitur berdasarkan analisis matriks tingkat dampak kegunaan (Impact) dan beban kerja pengembangan (Effort).</p>
+        <p style="color: var(--muted); max-width: 600px; margin: 0 auto;">Pemetaan eksekusi fitur berdasarkan analisis matriks tingkat dampak kegunaan (Impact) dan beban kerja pengembangan (Effort).</p>
       </div>
 
-      <div class="quadrant-grid">
+      <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
         
-        <div class="quadrant-card" style="border-top: 4px solid #1abc9c;">
-          <span class="priority-badge">High Impact & Low Effort</span>
-          <h4 style="margin: 10px 0;">Fitur Utama Strategis</h4>
-          <ul class="obs-list" style="margin-top: 10px;">
-            <li style="color: #fff;">Menambahkan fitur <strong>"Driver Availability Indicator"</strong> untuk menampilkan jumlah driver aktif di sekitar user.</li>
-            <li style="color: #fff;">Menampilkan <strong>estimasi waktu berbentuk rentang</strong> demi meningkatkan akurasi persepsi user.</li>
-            <li style="color: #fff;">Pembaruan kalkulasi <strong>estimasi waktu secara dinamis</strong> sepanjang perjalanan.</li>
+        <div class="glass card reveal" style="border-top: 4px solid #1abc9c; padding: 24px; border-radius: var(--r-md);">
+          <span class="persona-tag" style="background: rgba(26, 188, 156, 0.1); border: 1px solid #1abc9c; color: #fff; margin-bottom: 10px;">High Impact & Low Effort</span>
+          <h4 style="margin: 10px 0; font-family: 'Syne', sans-serif; color: #1abc9c;">Fitur Utama Strategis</h4>
+          <ul style="list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: var(--text);">
+            <li>• Menambahkan fitur <strong>"Driver Availability Indicator"</strong> untuk menampilkan jumlah driver aktif di sekitar user.</li>
+            <li>• Menampilkan <strong>estimasi waktu berbentuk rentang</strong> demi meningkatkan akurasi persepsi user.</li>
+            <li>• Pembaruan kalkulasi <strong>estimasi waktu secara dinamis</strong> sepanjang perjalanan.</li>
           </ul>
         </div>
 
-        <div class="quadrant-card" style="border-top: 4px solid #3498db;">
-          <span class="priority-badge">High Impact & High Effort</span>
-          <h4 style="margin: 10px 0; color: #3498db;">Pengembangan Skala Besar</h4>
-          <ul class="obs-list" style="margin-top: 10px;">
-            <li style="color: #fff;">Memprioritaskan tugas driver dengan <strong>rekam performa tinggi</strong> di area demand padat.</li>
-            <li style="color: #fff;">Penerapan <strong>"Auto Suggestion Berdasarkan Kebiasaan"</strong> sesuai pola jam aktivitas pengguna.</li>
-            <li style="color: #fff;">Sistem <strong>pengalihan pesanan otomatis ke driver terdekat</strong> jika terjadi pembatalan (seamless re-route).</li>
+        <div class="glass card reveal" style="border-top: 4px solid #3498db; padding: 24px; border-radius: var(--r-md);">
+          <span class="persona-tag" style="background: rgba(52, 152, 219, 0.1); border: 1px solid #3498db; color: #fff; margin-bottom: 10px;">High Impact & High Effort</span>
+          <h4 style="margin: 10px 0; font-family: 'Syne', sans-serif; color: #3498db;">Pengembangan Skala Besar</h4>
+          <ul style="list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: var(--text);">
+            <li>• Memprioritaskan tugas driver dengan <strong>rekam performa tinggi</strong> di area demand padat.</li>
+            <li>• Penerapan <strong>"Auto Suggestion Berdasarkan Kebiasaan"</strong> sesuai pola jam aktivitas pengguna.</li>
+            <li>• Sistem <strong>pengalihan pesanan otomatis ke driver terdekat</strong> jika terjadi pembatalan (seamless re-route).</li>
           </ul>
         </div>
 
-        <div class="quadrant-card" style="border-top: 4px solid #f1c40f;">
-          <span class="priority-badge">Low Impact & Low Effort</span>
-          <h4 style="margin: 10px 0; color: #f1c40f;">Penyempurnaan Minor</h4>
-          <ul class="obs-list" style="margin-top: 10px;">
-            <li style="color: #fff;">Penyediaan visualisasi info kondisi lalu lintas & risiko delay <strong>sebelum order dibuat</strong>.</li>
-            <li style="color: #fff;">Penyusunan struktur alur pemesanan produk yang <strong>jauh lebih ringkas</strong>.</li>
+        <div class="glass card reveal" style="border-top: 4px solid #f1c40f; padding: 24px; border-radius: var(--r-md);">
+          <span class="persona-tag" style="background: rgba(241, 196, 15, 0.1); border: 1px solid #f1c40f; color: #fff; margin-bottom: 10px;">Low Impact & Low Effort</span>
+          <h4 style="margin: 10px 0; font-family: 'Syne', sans-serif; color: #f1c40f;">Penyempurnaan Minor</h4>
+          <ul style="list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: var(--text);">
+            <li>• Penyediaan visualisasi info kondisi lalu lintas & risiko delay <strong>sebelum order dibuat</strong>.</li>
+            <li>• Penyusunan struktur alur pemesanan produk yang <strong>jauh lebih ringkas</strong>.</li>
           </ul>
         </div>
 
-        <div class="quadrant-card" style="border-top: 4px solid #e74c3c;">
-          <span class="priority-badge">Low Impact & High Effort</span>
-          <h4 style="margin: 10px 0; color: #e74c3c;">Optimasi Kompleks Tingkat Lanjut</h4>
-          <ul class="obs-list" style="margin-top: 10px;">
-            <li style="color: #fff;">Saran otomatis <strong>titik penjemputan alternatif</strong> yang lebih mudah dijangkau driver.</li>
-            <li style="color: #fff;">Sistem tata kelola <strong>distribusi sebaran driver</strong> khusus di titik rawan kemacetan tinggi.</li>
+        <div class="glass card reveal" style="border-top: 4px solid #e74c3c; padding: 24px; border-radius: var(--r-md);">
+          <span class="persona-tag" style="background: rgba(231, 76, 60, 0.1); border: 1px solid #e74c3c; color: #fff; margin-bottom: 10px;">Low Impact & High Effort</span>
+          <h4 style="margin: 10px 0; font-family: 'Syne', sans-serif; color: #e74c3c;">Optimasi Kompleks Tingkat Lanjut</h4>
+          <ul style="list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: var(--text);">
+            <li>• Saran otomatis <strong>titik penjemputan alternatif</strong> yang lebih mudah dijangkau driver.</li>
+            <li>• Sistem tata kelola <strong>distribusi sebaran driver</strong> khusus di titik rawan kemacetan tinggi.</li>
           </ul>
         </div>
 
@@ -296,18 +283,20 @@
     </div>
   </section>
 
+  <!-- ─── FIGMA CTA LINK ─── -->
   <section class="section" style="padding-top: 0; margin-top: 40px;">
     <div class="container">
       <div class="reveal">
         <a href="https://www.figma.com/design/Y3NHLR5LgUpNu5y3gUyGEd/UI-UX-DESIGN?node-id=0-1&p=f&t=9uHP1MUr9zSFLrHZ-0" 
            target="_blank" 
            rel="noopener noreferrer" 
+           class="premium-cta-wrapper-link"
            style="text-decoration: none; display: block; color: inherit;">
           
-          <div class="glass card" style="display: flex; align-items: center; justify-content: space-between; padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.15); transition: transform 0.3s ease, border-color 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#ff5722';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.15)';">
+          <div class="glass card interactive-box" style="display: flex; align-items: center; justify-content: space-between; padding: 30px; border-radius: var(--r-md); transition: transform var(--t-base) var(--ease-out), border-color var(--t-base);">
             
-            <div style="display: flex; align-items: center; gap: 20px;">
-              <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+              <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center;" class="pulse-icon">
                 <svg width="36" height="54" viewBox="0 0 36 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 13.5C9 8.52944 13.0294 4.5 18 4.5C22.9706 4.5 27 8.52944 27 13.5C27 18.4706 22.9706 22.5 18 22.5C13.0294 22.5 9 18.4706 9 13.5Z" fill="#F24E1E"/>
                   <path d="M0 13.5C0 8.52944 4.02944 4.5 9 4.5C13.9706 4.5 18 8.52944 18 13.5C18 18.4706 13.9706 22.5 9 22.5C4.02944 22.5 0 18.4706 0 13.5Z" fill="#FF7262"/>
@@ -318,13 +307,13 @@
               </div>
               
               <div>
-                <span class="hero-badge" style="font-size: 0.75rem; padding: 2px 8px; margin-bottom: 6px; display: inline-block;">Figma File</span>
-                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem; font-family: 'Syne', sans-serif;">UI/UX DESIGN — GOFAST </h3>
-                <p style="margin: 0; color: #aaa; font-size: 0.9rem;">Klik untuk membuka berkas User persona 1,2,3, INSIGHT FIX, HMW, DEFINE (Prioritas Masalah) di Figma.</p>
+                <span class="hero-badge" style="font-size: 0.75rem; padding: 4px 12px; margin-bottom: 6px;">Figma File</span>
+                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem; font-family: 'Syne', sans-serif;">UI/UX DESIGN — GOFAST</h3>
+                <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Klik untuk membuka berkas User persona 1,2,3, INSIGHT FIX, HMW, DEFINE (Prioritas Masalah) di Figma.</p>
               </div>
             </div>
 
-            <div style="font-size: 1.5rem; color: #666; padding-right: 10px;">
+            <div style="font-size: 1.5rem; color: var(--muted);" class="arrow-vector">
               ➔
             </div>
 
@@ -334,6 +323,7 @@
     </div>
   </section>
 
+  <!-- ─── FOOTER ─── -->
   <footer class="footer">
     <div class="container">
       <p>© 2026 <strong>GOFAST</strong> — Design Documentation Project</p>
