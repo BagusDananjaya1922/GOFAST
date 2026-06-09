@@ -1,0 +1,370 @@
+/* ============================================================
+   GOFAST — Animation Layer (animations.css)
+   Tambahkan <link rel="stylesheet" href="css/animations.css">
+   di <head> index.html, SETELAH style.css
+   ============================================================ */
+
+/* ── 1. KEYFRAMES ─────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes pulseRing {
+  0%   { box-shadow: 0 0 0 0 rgba(91,79,233,0.35); }
+  70%  { box-shadow: 0 0 0 10px rgba(91,79,233,0); }
+  100% { box-shadow: 0 0 0 0 rgba(91,79,233,0); }
+}
+
+@keyframes navbarSlideDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes borderFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* ── 2. NAVBAR ENTRANCE ───────────────────────────────────── */
+
+.header {
+  animation: navbarSlideDown 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* ── 3. HERO SECTION ──────────────────────────────────────── */
+
+.hero-eyebrow {
+  animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+.hero-text h1 {
+  animation: fadeUp 0.7s 0.2s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+.hero-text p {
+  animation: fadeUp 0.7s 0.35s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+.hero-buttons {
+  animation: fadeUp 0.7s 0.45s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* Mini stats stagger */
+.mini-stat {
+  animation: countUp 0.55s cubic-bezier(0.22,1,0.36,1) both;
+}
+.mini-stat:nth-child(1) { animation-delay: 0.55s; }
+.mini-stat:nth-child(2) { animation-delay: 0.65s; }
+.mini-stat:nth-child(3) { animation-delay: 0.75s; }
+
+/* Hero card floats in */
+.hero-card {
+  animation: scaleIn 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Floating card effect */
+.hero-card .card {
+  animation: floatY 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  box-shadow: 0 24px 64px rgba(91,79,233,0.12), 0 8px 24px rgba(0,0,0,0.06);
+}
+
+
+/* ── 4. GRADIENT TEXT SHIMMER ─────────────────────────────── */
+
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--violet) 0%,
+    #9B8FF5 30%,
+    #C4BFF9 50%,
+    #9B8FF5 70%,
+    var(--violet) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+
+/* ── 5. CARD HOVER ENHANCEMENTS ───────────────────────────── */
+
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 48px rgba(91,79,233,0.15), 0 8px 16px rgba(0,0,0,0.06);
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Pain tag hover */
+.pain-tag {
+  transition: transform 0.2s, background 0.2s;
+  cursor: default;
+}
+.pain-tag:hover {
+  transform: scale(1.06);
+  background: #f7d0cc;
+}
+
+
+/* ── 6. REVEAL (scroll-triggered) — upgrade ──────────────── */
+
+.reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(24px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger siblings inside a grid */
+.grid-3 .reveal:nth-child(2),
+.grid-4 .reveal:nth-child(2) { transition-delay: 0.08s; }
+.grid-3 .reveal:nth-child(3),
+.grid-4 .reveal:nth-child(3) { transition-delay: 0.16s; }
+.grid-4 .reveal:nth-child(4) { transition-delay: 0.24s; }
+
+.grid-2 .reveal:nth-child(2) { transition-delay: 0.1s; }
+
+
+/* ── 7. BUTTON INTERACTIONS ───────────────────────────────── */
+
+.btn-primary {
+  transition: background 0.22s, box-shadow 0.22s, transform 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: inherit;
+}
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-primary:active { transform: translateY(1px) scale(0.98); }
+
+.btn-outline {
+  transition: background 0.2s, border-color 0.2s, transform 0.18s, box-shadow 0.2s;
+}
+.btn-outline:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.btn-outline:active { transform: scale(0.98); }
+
+
+/* ── 8. FIGMA EMBED WRAPPER ───────────────────────────────── */
+
+.figma-embed-wrap {
+  animation: scaleIn 0.7s 0.2s cubic-bezier(0.22,1,0.36,1) both;
+  transition: box-shadow 0.3s;
+}
+.figma-embed-wrap:hover {
+  box-shadow: 0 16px 48px rgba(91,79,233,0.12), 0 2px 8px rgba(0,0,0,0.07);
+}
+
+
+/* ── 9. CTA BOX ANIMATED BORDER ──────────────────────────── */
+
+.cta-box {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    var(--violet-light), var(--teal-light),
+    var(--violet-light), var(--teal-light)
+  );
+  background-size: 300% 300%;
+  animation: borderFlow 6s ease infinite;
+  z-index: 0;
+}
+
+.cta-box > * { position: relative; z-index: 1; }
+
+.cta-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(91,79,233,0.15);
+}
+
+
+/* ── 10. PERSONA AVATAR ───────────────────────────────────── */
+
+.persona-avatar {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.persona-avatar:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 16px 32px rgba(91,79,233,0.25);
+}
+
+
+/* ── 11. MATRIX CARDS ─────────────────────────────────────── */
+
+.matrix-card {
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+}
+.matrix-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.09);
+}
+
+
+/* ── 12. BADGE PULSE (primary violet only) ────────────────── */
+
+.badge-violet {
+  animation: pulseRing 2.5s cubic-bezier(0.455,0.03,0.515,0.955) infinite;
+}
+
+
+/* ── 13. NAV LINK UNDERLINE SLIDE ─────────────────────────── */
+
+.nav-menu > a,
+.nav-dropbtn {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-menu > a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 12px; right: 12px;
+  height: 2px;
+  background: var(--violet);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
+}
+.nav-menu > a:hover::after,
+.nav-menu > a.active::after { transform: scaleX(1); }
+
+
+/* ── 14. OPP-BOX SLIDE IN ─────────────────────────────────── */
+
+.opp-box {
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.opp-box:hover {
+  transform: translateX(4px);
+  box-shadow: -4px 0 12px rgba(15,155,130,0.1);
+}
+
+
+/* ── 15. TAG-SECTION ENTRANCE ─────────────────────────────── */
+
+.tag-section {
+  display: inline-block;
+  animation: slideRight 0.5s 0.05s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+
+/* ── 16. SCROLL-STRIP SCREEN FRAMES ──────────────────────── */
+
+.scroll-frame,
+[style*="width: 180px"][style*="height: 380px"] {
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+}
+[style*="width: 180px"][style*="height: 380px"]:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(91,79,233,0.18);
+  z-index: 2;
+}
+
+
+/* ── 17. LOGO HOVER SPIN ──────────────────────────────────── */
+
+.logo-img {
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), filter 0.3s;
+}
+.logo:hover .logo-img {
+  transform: rotate(-8deg) scale(1.1);
+  filter: drop-shadow(0 4px 10px rgba(91,79,233,0.35));
+}
+
+
+/* ── 18. PAGE HERO ────────────────────────────────────────── */
+
+.page-hero h1 {
+  animation: fadeUp 0.65s 0.05s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+.page-hero .lead {
+  animation: fadeUp 0.65s 0.18s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+
+/* ── 19. FOOTER ───────────────────────────────────────────── */
+
+.footer {
+  animation: fadeIn 0.8s ease both;
+}
+
+
+/* ── 20. REDUCED MOTION SUPPORT ──────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
